@@ -1,0 +1,26 @@
+/* HOME PAGE */
+
+header, footer {
+  background-color: lightblue;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+}
+
+h1, h2 {
+  margin: 3px;
+}
+
+h1 {
+  color: red;
+}
+
+h2 {
+  color: blue;
+}
+
+footer {
+  padding: 1px;
+  color: blue;
+  font-size: 20px;
+}
