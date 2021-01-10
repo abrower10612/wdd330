@@ -1,0 +1,25 @@
+body {
+  text-align: center;
+  border: 2px solid black;
+  max-width: 30%;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+h1 {
+  margin: 10px;
+}
+
+input {
+  margin: 20px;
+  background-color: whitesmoke;
+}
+
+button {
+  margin: 20px 0px ;
+}
+
+textarea {
+  background-color: whitesmoke;
+}
+
