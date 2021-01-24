@@ -50,7 +50,7 @@
         <h3>Namespacing</h3>
         <p>Naming collisions occur when the same variable or function name is used for different purposes by code sharing the same scope. The object literal pattern can be used to create a namespace for groups of related functions. This is done by creating an object literal that serves as the namespace, then adding any values as properties of that object, and any functions as methods. So basically this is the practice of creating a new scope that will help avoid naming collisions. </p>
       </section>
-      <section>
+      <section class="long">
         <h3>Built-in Objects</h3>
         <p>Aside from arrays and functions, JavaScript has a number of other built-in global objects that can be accessed from anywhere in a program.</p>
         <p>JSON stands for JavaScript Object Notation. It is often used to exchange information between web services. It hits the sweet spot between being human and machine readable. In JSON, property names must be double-quoted. Also, permitted values are double-quoted strings, numbers, true, false, null, arrays and objects. And functions are not permitted values. The parse() method takes a string of data in JSON format and returns a JavaScript object. The stringify() method does the opposite, taking a JavaScript object and returning a string of JSON data. A space argument can be added that will add new lines between each key-value pair, which is useful when displaying the results in a browser.</p>
@@ -59,10 +59,24 @@
         <p> The Math.exp() method will raise a number to the power of Euler's constant. The Math.pow() method will raise any number to the power of another number. The Math.sqrt() method returns the positive square root of a number. The Math.cbrt() method returns the cube root of numbers. The Math.hypot() method returns the square root of the sum of the squares of all its arguments.</p>
         <p>The Math.log() method returns the natural logarithm of a number.</p>
         <p>The Math.max() method returns the maximum number from its arguments. (e.g. 3 is the max out of 1, 2, and 3).</p>
+        <p>Trigonometric Functions: <br><br> The Math.sin() returns the sine of an angle. The Math.cos() returns the cosine of an angle. The Math.tan() returns the tangent of an angle. The Math.asin() returns the arcsine of a number. The Math.acos() returns the arccosine of a number. The Math.atan() returns the arctangent of a number. Methods for the hyperbolic functions, sinh(), cosh(), and tanh() were also added as all we their inverses. </p>
+        <p>Random Numbers <br><br> The Math.random() method is used to create random numbers (e.g. '6 * Math.random()'' will generate a random number between 0 and 6). In order to generate a random integer: 'Math.floor(6 * Math.random())''. </p>
+        <p>The Date Object: <br><br> A constructor function is used to create a new date object using the 'new' operator. Remember that computer programs start counting at zero, so January is 0, Febuary is 1, and so on up to December, which is 11. An alternative is to use a timestamp, which is a single integer argument that represents the number of milliseconds since the Epoch (1st january 1970).</p>
+        <p>Getter Methods: <br><br> Once you've created a date object it will have access to all the getter methods. Most methods have two versions, one that returns information for local time and one that returns information for Coordinated Universal Time (UTC).</p>
+        <p>Setter Methods: <br><br> Setter methods can be used to change the value of the date held in a Date object.</p>
+        <p>The RegExp Object: <br><br> A regular expression (RegExp) is a pattern that can used to search strings for matches to the pattern. 'Find and replace' is a common type of operation (e.g. /[a-zA-Z]+ing$/). </p>
+        <p>Creating Regular Expression: <br><br>Aside from the example above, you cacn create a new instance of the RegExp object using the new operator and a constructor function (e.g. const pattern = new RegExp('[a-zA-Z]+ing');).</p>
+        <p>RegExp Methods: <br><br> The test() method can be used to see if a string matches the regular expression pattern. It returns true if the pattern is in the string, and false if it isn't.</p>
       </section>
       <section>
         <h3>Character Groups</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+        <p>Groups of characters can be placed together inside square brackets. A dash includes a sequence of characters. '/^' negates the sequence if placed before it. </p>
+        <p>Regular Expression Properties: <br><br> Regular expressions are objects and have the following properties: global (Makes pattern return all matches. The pattern only looks for the first occurrence of a match), ignoreCase (makes the pattern case-insensitive), and multiline (makes the pattern multiline). The following flags can be placed after a regular expression literal to change the default properties: g (global property true), i (ignoreCase property true), and m (multiline property true).</p>
+        <p>Special Characters: <br><br> Characters that have a special meaning, AKA metacharacters.</p>
+        <p>Modifiers: <br><br> Can be placed after a token to deal with multiple occurrences of that token. Any special characters or modifiers can be escaped using a backslash.</p>
+        <p>Greedy and Lazy Modifiers: <br><br> All modifiers mentioned above are greedy, which means they will match the longest possible string. They can be made into lazy modifiers that match the shortest possible string by adding an extra '?' after the modifier.</p>
+        <p>String Methods: <br><br> The split() method can accept a regular expression that's used to split a string into the separate elements of an array.</p>
+        <p>Matched Groups: <br><br> Capturing groups are sub-patterns that are created inside a regular expression by placing them inside parentheses. </p>
       </section>
     </div>
     <h2>Chapter 6: The Document Object Model</h2>
