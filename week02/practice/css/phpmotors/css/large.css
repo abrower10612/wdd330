@@ -1,0 +1,118 @@
+@media screen and (min-width: 600px) {
+
+  html {
+    background-image: url("../images/site/checkerboard.jpg");
+    background-size: 400px;
+    }
+    
+    body {
+      border: solid 5px #4c96d7;
+      margin: 30px auto;
+      max-width: 1200px;
+    }
+    
+    .myAccount {
+      font-size: 20px;
+      margin: 30px 40px;
+    }
+    
+    main {
+      padding: 5px;
+    }
+    
+    h1 {
+      font-size: 40px;
+      margin: 0 0 10px 0;
+    }
+    
+    h2 {
+      margin-top: 30px;
+      margin-left: 30px;
+      color: #4c96d7;
+      position: relative;
+      z-index: 1000;
+      font-size: 40px;
+    }
+    
+    main p:first-of-type {
+      margin-left: 30px;
+      color: #4c96d7;
+      z-index: 1000;
+      position: relative;
+      font-size: 30px;
+    }
+    
+    .delorean {
+      width: 100%;
+      z-index: 1;
+      position: relative;
+      bottom: 200px;
+      margin: 0;
+    }
+    
+    .buttondiv {
+      text-align: left;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1000;
+    }
+    
+    .buttonLarge {
+      display: initial;
+      background-color: #4c96d7;;
+      color: #3a3a3a;
+      padding: 7px 20px;
+      font-size: 1.5rem;
+      margin: 30px;
+      position: initial;
+    }
+
+    .buttonSmall {
+      display: none;
+    }
+
+    .deloreanInfo {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
+      margin: 10px;
+      position: relative;
+      bottom: 100px;
+    }
+
+    .deloreanInfo h3 {
+      font-size: 30px;
+    }
+
+    .upgradeInfo {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .reviews {
+      grid-column: 2;
+      grid-row: 1;
+      margin: 10px auto;
+      font-size: 20px;
+    }
+
+    .reviews ul li {
+      margin: 10px;
+    }
+
+    .reviews h3 {
+      margin-left: 20px;
+    }
+    
+    .upgrades {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 5px;
+    }
+
+    footer p {
+      font-size: 20px;
+    }
+
+}
