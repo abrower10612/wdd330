@@ -9,6 +9,18 @@ html {
 
   background-attachment: fixed;
   color: black;
+
+  margin: 0 auto;
+}
+
+body {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.mainContainer {
+  max-width: 1000px;
+  margin: 20px;
 }
 
 .line {
@@ -28,11 +40,13 @@ h2 {
 
 h3 {
   font-size: 1.5em;
+  border-bottom: solid 2px black;
+  margin: 5px;
 }
 
 .container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   text-align: center;
 }
@@ -40,4 +54,13 @@ h3 {
 section {
   border: solid 2px black;
   padding: 10px;
+}
+
+section p:last-of-type {
+  border-bottom: none;
+}
+
+p {
+  border-bottom: solid 2px black;
+  padding-bottom: 10px;
 }

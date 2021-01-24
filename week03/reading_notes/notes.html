@@ -7,34 +7,126 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>WDD 330 Week03 Notes</h1>
-  <div class="line"></div>
-  <h2>Chapter 5: Objects</h2>
-  <div class="container">
-    <section>
-      <h3>Object Literals</h3>
-      <p></p>
-    </section>
-    <section>
-      <h3>Section Header</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur vero, quod cumque quia ipsam eum perferendis expedita asperiores provident sint, illo minus quo delectus. In sapiente alias esse tenetur ex eveniet impedit saepe cum reiciendis cumque, omnis animi consectetur minima obcaecati nemo! Modi vel ea suscipit illo et ullam nobis.</p>
-    </section>
-    <section>
-      <h3>Section Header</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, sequi.</p>
-    </section>
-    <section>
-      <h3>Section Header</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, sequi.</p>
-    </section>
-    <section>
-      <h3>Section Header</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, sequi.</p>
-    </section>
-    <section>
-      <h3>Section Header</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, sequi.</p>
-    </section>
+  <div class="mainContainer">
+    <h1>WDD 330 Week03 Notes</h1>
+    <div class="line"></div>
+    <h2>Chapter 5: Objects</h2>
+    <div class="container">
+      <section>
+        <h3>Object Literals</h3>
+        <p>Objects are basically dictionaries that store related information. If a property's value is a function, it is known as a method.</p>
+      </section>
+      <section>
+        <h3>Creating Objects</h3>
+        <p>To create an object literal, simply enter a pair of curly braces. </p>
+        <p>Dot notation is the best way to access the properties of an object. If you try to access a property that doesn't exist, undefined will be returned.</p>
+        <p>A property can be a concatenation of strings inside of square brackets, which is an example of a computed property.A new property can be added t oan object using a symbol as a key if the square bracket notation is used.</p>
+      </section>
+      <section>
+        <h3>Calling Methods</h3>
+        <p>To call an object's method we can also use dot or bracket notation. Calling a method is the same as invoking a function, so parentheses need to be placed after the method name.</p>
+      </section>
+      <section>
+        <h3>Checking if Properties or Methods Exist</h3>
+        <p>All objects have a method called hasOwnProperty(). The 'in' operator can be used to check whether an object has a particular property.</p>
+      </section>
+      <section>
+        <h3>Finding all the Properties of an Object</h3>
+        <p>Loop through all object properties and methods with for in loop.You can also use Object.values() that will return an array of all thet object's values. Object.entries() returns an array of key-value pairs.</p>
+        <p>New properties are added to an object by simply assigning a value to the new property. Be aware though that an objet is not an ordered list like an array, set, or map, so you should never rely on the properties to be in a certain order.</p>
+        <p>The value of an object's properties can also be changed using assignment.</p>
+      </section>
+      <section>
+        <h3>Removing Properties</h3>
+        <p>Any property can be removed from an object using the delete operator (e.g. delete superman.fly).</p>
+      </section>
+      <section>
+        <h3>Nested Objects</h3>
+        <p>Objects can contain other objects called nested objects. The values in nested objects can be accessed with dot notation by using each property name in order. Be aware that objects are copied by reference, which means that the referenced object will be changed if the cloned object is changed. They both point to the same space in memory.</p>
+        <p>Objects can be passed to functions as parameters. In this case arguments can be provided by name and in any order. Values can be overridden by simply naming the parameter and setting a different value to it.</p>
+        <p>The keyword 'this' refers to the object that it is within. It can be used inside methods to gain access to the object's properties.</p>
+      </section>
+      <section>
+        <h3>Namespacing</h3>
+        <p>Naming collisions occur when the same variable or function name is used for different purposes by code sharing the same scope. The object literal pattern can be used to create a namespace for groups of related functions. This is done by creating an object literal that serves as the namespace, then adding any values as properties of that object, and any functions as methods. So basically this is the practice of creating a new scope that will help avoid naming collisions. </p>
+      </section>
+      <section>
+        <h3>Built-in Objects</h3>
+        <p>Aside from arrays and functions, JavaScript has a number of other built-in global objects that can be accessed from anywhere in a program.</p>
+        <p>JSON stands for JavaScript Object Notation. It is often used to exchange information between web services. It hits the sweet spot between being human and machine readable. In JSON, property names must be double-quoted. Also, permitted values are double-quoted strings, numbers, true, false, null, arrays and objects. And functions are not permitted values. The parse() method takes a string of data in JSON format and returns a JavaScript object. The stringify() method does the opposite, taking a JavaScript object and returning a string of JSON data. A space argument can be added that will add new lines between each key-value pair, which is useful when displaying the results in a browser.</p>
+        <p>The Math object has eight properties that represent a mix of commonly used math constants: Math.PI, Math.SORT2, Math.SQRT1_2, Math.E, Math.LN2, Math.LN10, Math.LOG2E, and Math.LOG10E.</p>
+        <p>The Math object also has several methods to carry out a variety of useful mathematical operations. The Math.abs() method returns the absolute value of a number. The Math.ceil() method will round a number up to the next integer, or remain the same if it is already an integer. The Math.floor() will round a number down to the next integer or remain the same if it is an integer. The Math.round() method will round a number to the nearest integer. The Math.trunc() method returns the integer-part of a number.</p>
+        <p> The Math.exp() method will raise a number to the power of Euler's constant. The Math.pow() method will raise any number to the power of another number. The Math.sqrt() method returns the positive square root of a number. The Math.cbrt() method returns the cube root of numbers. The Math.hypot() method returns the square root of the sum of the squares of all its arguments.</p>
+        <p>The Math.log() method returns the natural logarithm of a number.</p>
+        <p>The Math.max() method returns the maximum number from its arguments. (e.g. 3 is the max out of 1, 2, and 3).</p>
+      </section>
+      <section>
+        <h3>Character Groups</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+    </div>
+    <h2>Chapter 6: The Document Object Model</h2>
+    <div class="container">
+      <section>
+        <h3>The Document Object Model</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+      <section>
+        <h3>History of the DOM</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+      <section>
+        <h3>An Example Web Page</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+      <section>
+        <h3>Getting Elements</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+      <section>
+        <h3>Setting An Element's Attributes</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+      <section>
+        <h3>Updating CSS</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+    </div>
+    <h2>Chapter 7: Events</h2>
+    <div class="container">
+      <section>
+        <h3>Event Listeners</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+      <section>
+        <h3>Example Code</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+      <section>
+        <h3>The Event Object</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+      <section>
+        <h3>Types of Events</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+      <section>
+        <h3>Removing Event Listeners</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+      <section>
+        <h3>Stopping Default Behavior</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+      <section>
+        <h3>Event Propagation</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+      <section>
+        <h3>Event Delegation</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+    </div>
   </div>
 </body>
 </html>
