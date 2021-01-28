@@ -8,42 +8,31 @@
 </head>
 <body>
   <div class="mainContainer">
-    <h1>WDD 330 Week# Notes</h1>
+    <h1>WDD 330 Week04 Notes</h1>
     <div class="line"></div>
-    
-    <h2>Chapter #: Title</h2>
-    <div class="container">
-      <section>
-        <h3>Section Title</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
-      </section>
-      <section>
-        <h3>Section Title</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
-      </section>
-    </div>
 
-    <h2>Chapter #: Title</h2>
+    <h2>Chapter 8: Forms</h2>
     <div class="container">
       <section>
-        <h3>Section Title</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+        <h3>Forms</h3>
+        <p>Using JavaScript, it is possible to process the information of a form on the frontend before it is sent to the server. Traditionally, the form was sent to the server using a backend language such as PHP or Ruby before being processed. </p>
+        <p>Accessing Form Elements: <br><br> An example of accessing an element in a form is "const form = document.forms[0];"</p>
+        <p>Form Properties and Methods: <br><br> The 'form.reset() method will reset all the form controls back to their initial values specified in the HTML. This isn't very good practice though because the page refresh button does the same thing. </p>
+        <p>Form Events: <br><br> Forms trigger a number of events such as focus, blur, and change (e.g. 'input.addEventListener('focus', () => alert('focused'), false);</p>
+        <p>Submitting a Form: <br><br> Form submission can be tracked with a function like this: 'function search(event) {...}'. And the form submission can be stoped with 'event.preventDefault();'</p>
+        <p>Retrieving and Changing Values From a Form: <br><br> Text input element objects have a value property that can be used to retrieve text inside the field (e.g. alert(`You searched for: ${input.value}`);). The value of an input can be set by using something like this: "input.value = 'Search here';". In order to have the default value erased when the user clicks on that field, an if statement will need to be used that will tell the program that if the input value equals the default value (which it does, then the input.value will then equal nothing with two single quotes side by side. However, using the placeholder attribute is far easier and efficient.</p>
+        <p>Form Controls: <br><br> Some other common types of form control are input, select, textarea, and button</p>
       </section>
       <section>
-        <h3>Section Title</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
-      </section>
-    </div>
-
-    <h2>Chapter #: Title</h2>
-    <div class="container">
-      <section>
-        <h3>Section Title</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
-      </section>
-      <section>
-        <h3>Section Title</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+        <h3>Input Fields</h3>
+        <p>Text Input Fields: <br><br> The default type of input field is text, although the teyupe='text' attribute isn't required. It is recommended however. The value can be set intially with value='10', etc.</p>
+        <p>Password Input Fields: <br><br> Input type='password' causes the characters to be concealed. The value can be accessed the same way as text input fields using the value property (e.g. her.realName = form.realName.value;). </p>
+        <p>Checkbox Input Fields: <br><br> These use type='checkbox'; to be created. This allows for more than one checkbox to be selected at a time. When each checkbox element has the same name property, they can be accessed as an HTML collection (e.g. form.powers;). A for loop can then be used to iterate over each checkbox to see if each one is checked or not (boolean). Checkboxes can be checked initially using the 'checked' attribute in the HTML (e.g. // "input name='powers' checked"</p>
+        <p>Radio Button Input Fields: <br><br> Radio buttons make it so that only one choice can be selected at any given time. Using form.category (form.name), you can access an HTML collection of all the radio butons in that group. The array would look like this: '[input, input, input, value: "Antihero"]'. The value of the radio button that was selected is stored in form.category.value. Assign a category property to our hero object by adding this code: 'hero.category = form.category.value;'. Radio buttons also have a 'checked' property but only one can be set to checked (true) at a time. The rest will be set to unchecked (false).</p>
+        <p>Hidden Input Fields: <br><br> These are used to send information such as settings or info the user has already provided. These are visible in the HTML and should not be used for sensitive information.</p>
+        <p>File Input Fields: <br><br> Used to upload files and are created using 'type'=file on an input field. </p>
+        <p>Other Input Systems: <br><br> Other types include number, tel, and color. These have optional 'min' and 'max' attributes that can be used to limint the input given. The 'step' attribute determines how much the number changes by each click to increase or decrease the amount.</p>
+        <p>Select Drop-Down List: <br><br> Creates a drop down menu in which one or more items can be selected. The 'multiple' attribute must be used if more than one option is to be selected. An option can be intially selected by using the 'selected' attribute. </p>
       </section>
     </div>
   </div>
