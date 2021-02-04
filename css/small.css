@@ -1,13 +1,16 @@
 /* HOME PAGE */
 
-header, footer {
+header,
+footer {
   background-color: lightblue;
   padding: 5px;
   margin: 10px;
   text-align: center;
+  border: solid 2px blue;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin: 3px;
 }
 
@@ -17,6 +20,35 @@ h1 {
 
 h2 {
   color: blue;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  text-align: center;
+}
+
+section {
+  display: block;
+  list-style-type: none;
+  margin: 10px;
+  font-size: 1.25em;
+  color: blue;
+  border: solid 2px blue;
+  padding: 20px;
+  background-color: lightblue;
+}
+
+section h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+section a {
+  cursor: pointer;
+  font-size: 13px;
+  color: black;
 }
 
 footer {
