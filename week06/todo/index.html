@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/small.css">
+  <link rel="stylesheet" href="css/large.css">
+  <title>Toto's To Do List</title>
+</head>
+<body>
+  <h1>Toto's To Do List</h1>
+  <section id="taskContainer">
+    <ul id="tasks"><p id="allDone">All done for the day!</p></ul>
+    <div id="taskFooter">
+      <p id="taskCounter">0 tasks left</p> |
+      <a href="">All</a> |
+      <a href="">Active</a> |
+      <a href="">Completed</a>
+    </div>
+  </section>
+  <section id="addTaskBar">
+    <label for="">Add a Task: <input type="text" placeholder="Type here..." id="taskName"><button onclick="addTask(), document.getElementById('taskName').value = ''">+</button></label>
+  </section>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
