@@ -39,6 +39,10 @@ h1 {
   float: right;
 }
 
+#tasks li p {
+  display: inline;
+}
+
 #taskFooter {
   padding: 10px;
   border-top: none;
@@ -78,4 +82,8 @@ a {
 
 .notAllDone {
   display: none;
+}
+
+.boxChecked + p {
+  text-decoration: line-through;
 }

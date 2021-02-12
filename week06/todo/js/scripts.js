@@ -10,10 +10,23 @@ addEventListener('keydown', (e) => {
 function addTask() {
   var taskName = document.getElementById("taskName").value;
   var li = document.createElement("li");
-  li.appendChild(document.createTextNode(taskName));
+  var checkbox = document.createElement('input');
+  var task = document.createElement("p");
+  checkbox.type = "checkbox";
+  checkbox.value = 1;
+  checkbox.name = "checkbox";
+  checkbox.setAttribute("class", "checkbox");
+  checkbox.setAttribute("onclick", "boxChecked()");
+  li.appendChild(checkbox);
+  task.appendChild(document.createTextNode(taskName));
+  li.appendChild(task);
   li.setAttribute("class", "task");
   tasks.appendChild(li);
   taskCounter(li);
+}
+
+function boxChecked(checkbox) {
+
 }
 
 // Removes a task from the todo list by selecting the 'X' to the right of the item
