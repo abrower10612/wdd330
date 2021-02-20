@@ -1,0 +1,30 @@
+header, main, footer {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 5px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  background-color: #eee;
+}
+
+main section {
+  margin-left: 25px;
+}
+
+footer {
+  border-top: 1px solid #555;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.cards section {
+  border: 1px solid #bbb;
+  background-color: #abe;
+}
+

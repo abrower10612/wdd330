@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="notes.css">
+  <title>WDD 330 Notes</title>
+</head>
+<body>
+  <div class="mainContainer">
+    <h1>WDD 330 Week07 Notes</h1>
+    <div class="line"></div>
+    <h2>Chapter 11: Further Functions</h2>
+    <div class="container">
+      <section>
+        <h3>Call and Apply Methods</h3>
+        <p>The call() method can be used to set the value of this inside a function to an object that is provided as the first argument. If a function doesn’t refer to an object as this in its body, it can still be called using the call() method, but you need provide null as its first argument.</p>
+      </section>
+      <section>
+        <h3>Custom Properties</h3>
+        <p>If a function takes some time to compute a return value, we can save the result in a cache property. Then if the same argument is used again later, we can return the value from the cache, rather than having to compute the result again. This process is called memoization.</p>
+      </section>
+      <section>
+        <h3>Immediately Invoked Function Expressions</h3>
+        <p>An Immediately Invoked Function Expression – or IIFE – (pronounced 'iffy') is an anonymous function that, as the name suggests, is invoked as soon as it’s defined.</p>
+      </section>
+      <section>
+        <h3>Temporary Variables</h3>
+        <p>An IIFE can be used to swap the value of two global variables, a and b. This process requires the use of a temporary variable, called temp, which only exists while the IIFE is invoked.</p>
+      </section>
+      <section>
+        <h3>Initialization Code</h3>
+        <p>An IIFE can be used to set up any initialization code that there’ll be no need for again. Because the code is only run once, there’s no need to create any reusable, named functions, and all the variables will also be temporary. An IIFE will be invoked once, and can set up any variables, objects and event handlers when the page loads.</p>
+      </section>
+      <section>
+        <h3>Safe Use of Strict Mode</h3>
+        <p>One of the problems with simply placing 'use strict' at the beginning of a file is that it will enforce strict mode on all the JavaScript in the file, and if you’re using other people’s code, there’s no guarantee that they’ve coded in strict mode. To avoid this, the recommended way to use strict mode is to place all your code inside an IIFE</p>
+      </section>
+      <section>
+        <h3>Creating Self-Contained Code Blocks</h3>
+        <p>An IIFE can be used to enclose a block of code inside its own private scope so it doesn’t interfere with any other part of the program. Using IIFEs in this way means code can be added or removed separately.</p>
+      </section>
+      <section>
+        <h3>Functions that Define and Rewrite Themselves</h3>
+        <p>The dynamic nature of JavaScript means that a function is able to not only call itself, but define itself, and even redefine itself. This is done by assigning an anonymous function to a variable that has the same name as the function.</p>
+      </section>
+      <section>
+        <h3>Init-Time Branching</h3>
+        <p>This technique can be used with feature detection to create functions that rewrite themselves, known as init-time branching. This enables the functions to work more effectively in the browser, and avoid checking for features every time they’re invoked.</p>
+      </section>
+      <section>
+        <h3>Recursive Functions</h3>
+        <p>A recursive function is one that invokes itself until a certain condition is met. It’s a useful tool to use when iterative processes are involved.</p>
+      </section>
+      <section>
+        <h3>Event-Driven Asynchronous Programming</h3>
+        <p>Callbacks can be used to facilitate event-driven asynchronous programming. JavaScript is a single-threaded environment, which means only one piece of code will ever be processed at a time. This may seem like a limitation, but non-blocking techniques can be used to ensure that the program continues to run. Instead of waiting for an event to occur, a callback can be created that’s invoked when the event happens. This means that the code is able to run out of order, or asynchronously.</p>
+      </section>
+      <section>
+        <h3>Callback Hell:</h3>
+        <p>The increase in the use of asynchronous programming in JavaScript has meant that more and more callbacks are being used. This can result in messy and confusing 'spaghetti code'. This is when more than one callback is used in the same function, resulting in a large number of nested blocks that are difficult to comprehend.</p>
+      </section>
+      <section>
+        <h3>Promises</h3>
+        <p>A promise represents the future result of an asynchronous operation. Promises don't do anything that can't already be achieved using callbacks, but they help simplify the process, and avoid the convoluted code that can result from using multiple callbacks.</p>
+      </section>
+      <section>
+        <h3>The Promise Life Cycle</h3>
+        <p>When a promise is created, it calls an asynchronous operation and is then said to be pending. It remains in this state while the operation is taking place. At this stage, the promise is said to be unsettled. Once the operation has completed, the promise is said to have been settled. A settled promise can result in two different outcomes: Resolved ― the asynchronous operation was completed successfully. Rejected ― the asynchronous operation didn’t work as expected, wasn't successfully completed or resulted in an error. Both these outcomes will return any relevant data, and you can take the appropriate action based on the outcome of the promise.</p>
+      </section>
+      <section>
+        <h3>Creating a Promise</h3>
+        <p>A promise is created using a constructor function. This takes a function called an executor as an argument. The executor initializes the promise and starts the asynchronous operation. It also accepts two functions as arguments: the resolve() function is called if the operation is successful, and the reject() function is called if the operation fails.</p>
+      </section>
+      <section>
+        <h3>Dealing with a Settled Promise</h3>
+        <p>Once a promise has been settled, the then() method can be used to deal with the outcome. This method accepts two arguments. The first is a fulfilment function that’s called when the promise is resolved. Any data returned from the resolve() function will be passed along to this function. The second argument is a rejection function that’s called if the promise is rejected. Similar to the fulfilment function, the rejection function receives any data returned from the reject() function.</p>
+      </section>
+      <section>
+        <h3>Chaining Multiple Promises</h3>
+        <p>Promises come into their own when multiple asynchronous tasks are required to be carried out one after the other. If each function that performs an asynchronous operation returns a promise, we can chain the then() methods together to form a sequential piece of code that’s easy to read. Each promise will only begin once the previous promise has been settled.</p>
+      </section>
+      <section>
+        <h3>Async Functions</h3>
+        <p>Async functions were added to the ES2017 specification. These functions are preceded by the async keyword and allow you to write asynchronous code as if it was synchronous. This is achieved by using the await operator before an asynchronous function. This will wrap the return value of the function in a promise that can then be assigned to a variable. The next line of code is not executed until the promise is resolved.</p>
+      </section>
+      <section>
+        <h3>Generalized Functions</h3>
+        <p>Callbacks can be used to build more generalized functions. Instead of having lots of specific functions, one function can be written that accepts a callback.</p>
+      </section>
+      <section>
+        <h3>Closures</h3>
+        <p>A closure is a reference to a variable that was created inside the scope of another function, but is then kept alive and used in another part of the program. One of the key principles in creating closures is that an 'inner' function, which is declared inside another function, has full access to all of the variables declared inside the scope of the function in which it’s declared (the 'outer' function). </p>
+      </section>
+      <section>
+        <h3>Returning Functions</h3>
+        <p>A closure is formed when the inner function is returned by the outer function, maintaining access to any variables declared inside the enclosing function.</p>
+      </section>
+      <section>
+        <h3>Generators</h3>
+        <p>These are special functions used to produce iterators that maintain the state of a value. To define a generator function, an asterisk symbol (*) is placed after the function declaration. Calling a generator function doesn’t actually run any of the code in the function; it returns a Generator object that can be used to create an iterator that implements a next() method that returns a value every time the next() method is called. Generator functions employ the special yield keyword that is used to return a value. The difference between the yield and the return keywords is that by using yield, the state of the value returned is remembered the next time yield is called.</p>
+      </section>
+      <section>
+        <h3>Functional Programming</h3>
+        <p>Functional programming is a programming paradigm. Other examples of programming paradigms include object oriented programming and procedural programming. JavaScript is a multi-paradigm language, meaning that it can be used to program in a variety of paradigms (and sometimes a mash-up of them!). This flexibility is an attractive feature of the language, but it also makes it harder to adopt a particular coding style as the principles are not enforced by the language. A language such as Haskell, which is a purely functional language, is much stricter about adhering to the principles of functional programming.</p>
+      </section>
+      <section>
+        <h3>Pure Functions</h3>
+        <p>A key aspect of functional programming is its use of pure functions. A pure function is a function that adheres to the following rules: 1) The return value of a pure function should only depend on the values provided as arguments. It doesn't rely on values from somewhere else in the program. 2) There are no side-effects. A pure function doesn't change any values or data elsewhere in the program. It only makes non-destructive data transformations and returns new values, rather than altering any of the underlying data. 3) Referential transparency. Given the same arguments, a pure function will always return the same result.</p>
+      </section>
+      <section>
+        <h3>Higher-Order Functions</h3>
+        <p>Higher-order functions are functions that accept another function as an argument, or return another function as a result, or both. Closures are used extensively in higher-order functions as they allow us to create a generic function that can be used to then return more specific functions based on its arguments. This is done by creating a closure around a function's arguments that keeps them 'alive' in a return function.</p>
+      </section>
+      <section>
+        <h3>Currying</h3>
+        <p>A function is said to be curried when not all arguments have been supplied to the function, so it returns another function that retains the arguments already provided, and expects the remaining arguments that were omitted when the original function was called. A final result is only returned once all the expected arguments have eventually been provided. Currying relies on higher-order functions that are able to return partially applied functions. All curried functions are higher-order functions because they return a function, but not all higher-order functions are curried.</p>
+      </section>
+    </div>
+    <h2>Chapter 13: AJAX</h2>
+    <div class="container">
+      <section>
+        <h3>Section Title</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+      <section>
+        <h3>Section Title</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
