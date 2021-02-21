@@ -4,24 +4,38 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/small.css">
-  <link rel="stylesheet" href="css/large.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dist/css/style.min.css">
   <title>To Do List</title>
 </head>
 <body>
-  <h1>To Do List</h1>
-  <section id="taskContainer">
-    <ul id="tasks"><p id="allDone">All done for the day!</p></ul>
-    <div id="taskFooter">
-      <p id="taskCounter">0 tasks left</p> |
-      <a href="">All</a> |
-      <a href="">Active</a> |
-      <a href="">Completed</a>
-    </div>
-  </section>
-  <section id="addTaskBar">
-    <label for="">Add a Task: <input type="text" placeholder="Type here..." id="taskName"><button onclick="addTask(), document.getElementById('taskName').value = ''">+</button></label>
-  </section>
-  <script src="js/scripts.js"></script>
+  <main>
+    <section class="newItemEntry">
+      <form action="" id="itemEntryForm">
+        <label for="newItem">Enter a new to do item</label>
+        <input type="text" id="newItem" size="40" autocomplete="off" placeholder="Add Item" tabindex="0">
+        <button id="addItem" class="button" title="Add new item" aria-label="Add new item to list" tabindex="0">+</button>
+      </form>
+    </section>
+    <section class="listContainer">
+      <div class="listTitle">
+        <h1 tabindex="0">To Do List</h1>
+        <button id="clearItems" class="button" title="Clear the list" aria-label="Remove all items from the list" tabindex="0">Clear</button>
+        <button id="clearCompleted" class="button" title="Clear the list of completed tasks" aria-label="Remove all completed items from the completed list" tabindex="0">Clear Completed</button>
+      </div>
+      <hr>
+      <div class="listMenu">
+        <div id="taskCount"></div>
+        <button id="activeTab">Active</button>
+        <button id="completeTab">Completed</button>
+      </div>
+      <hr>
+      <div id="listItems"></div>
+      <!-- <div id="completed"></div> -->
+      <!-- <p id="confirmation" class="confirmation" aria-live="assertive"></p> -->
+    </section>
+  </main>
+  <script src="js/main.js" type="module"></script>
 </body>
 </html>
