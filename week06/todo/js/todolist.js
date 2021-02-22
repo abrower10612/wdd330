@@ -40,7 +40,6 @@ export default class ToDoList {
 
   completedItem(item, itemId) {
     const completedItem = this._list.find((i) => itemId === i._id);
-
     this.removeItemFromList(itemId);
     this._completedList.push(item);
   }

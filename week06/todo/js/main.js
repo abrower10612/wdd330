@@ -3,6 +3,8 @@ import ToDoItem from "./todoitem.js"
 
 const toDoList = new ToDoList();
 
+var view = "active";
+
 document.addEventListener("readystatechange", (event) => {
   if (event.target.readyState === "complete") {
     initApp();
@@ -19,7 +21,6 @@ const initApp = () => {
   const clearItems = document.getElementById("clearItems");
   clearItems.addEventListener("click", (event) => {
     const list = toDoList.getList();
-    console.log(list);
     if (list.length) {
       const confirmed = confirm("Are you sure you want to clear the entire list?");
       if (confirmed) {
@@ -34,7 +35,6 @@ const initApp = () => {
   const clearCompleted = document.getElementById("clearCompleted");
   clearCompleted.addEventListener("click", (event) => {
     const completedList = toDoList.getCompleted();
-    console.log(completedList);
     if (completedList.length) {
       const confirmed = confirm("Are you sure you want to clear your completed tasks?");
       if (confirmed) {
@@ -73,11 +73,22 @@ const loadCompletedListObject = () => {
 
 const refreshThePage = () => {
   clearListDisplay();
-  renderList();
+  if (view = "active") {
+    renderList();
+  }
+  else {
+    renderCompletedList();
+  }
   clearItemEntryField();
   setFocusOnItemEntry();
   taskCounter();
 }
+
+const showCompleted = document.getElementById("showCompleted");
+showCompleted.addEventListener("click", (event) => {
+  view = "completed";
+  renderCompletedList();
+});
 
 const clearListDisplay = () => {
   const parentElement = document.getElementById("listItems");
@@ -95,6 +106,13 @@ const deleteContents = (parentElement) => {
 const renderList = () => {
   const list = toDoList.getList();
   list.forEach(item => {
+    buildListItem(item);
+  })
+}
+
+const renderCompletedList = () => {
+  const completedList = toDoList.getCompleted();
+  completedList.forEach(item => {
     buildListItem(item);
   })
 }
@@ -182,6 +200,14 @@ const calcNextItemId = () => {
   }
   return nextItemId;
 }
+
+// const calcCompletedItemId = () => {
+//   let nextItemId = 1;
+//   const completedList = toDoList.getCompleted();
+//   if (completedList.length > 0) {
+//     nextItemId = completedList[completedList.length -1].getId() + 1;
+//   }
+// }
 
 const createNewItem = (itemId, itemText) => {
   const toDo = new ToDoItem();

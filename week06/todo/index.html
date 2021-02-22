@@ -22,17 +22,17 @@
       <div class="listTitle">
         <h1 tabindex="0">To Do List</h1>
         <button id="clearItems" class="button" title="Clear the list" aria-label="Remove all items from the list" tabindex="0">Clear</button>
-        <button id="clearCompleted" class="button" title="Clear the list of completed tasks" aria-label="Remove all completed items from the completed list" tabindex="0">Clear Completed</button>
+        <button id="clearCompleted" title="Clear the list of completed tasks" aria-label="Remove all completed items from the completed list" tabindex="0">Clear Completed</button>
       </div>
       <hr>
       <div class="listMenu">
         <div id="taskCount"></div>
-        <button id="activeTab">Active</button>
-        <button id="completeTab">Completed</button>
+        <button id="showActive" onclick="showActive()">Active</button>
+        <button id="showCompleted">Completed</button>
       </div>
       <hr>
       <div id="listItems"></div>
-      <!-- <div id="completed"></div> -->
+      <div id="completed"></div>
       <!-- <p id="confirmation" class="confirmation" aria-live="assertive"></p> -->
     </section>
   </main>
