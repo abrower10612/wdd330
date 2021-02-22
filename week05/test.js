@@ -10,7 +10,7 @@ one();
 function test() {
 'use strict'
 
-e = 2.718;
+var e = 2.718;
 console.log(e);
 }
 

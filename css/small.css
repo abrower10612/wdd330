@@ -1,12 +1,14 @@
-/* HOME PAGE */
+html {
+  background-color: #DADDD8;
+}
 
 header,
 footer {
-  background-color: lightblue;
+  background-color: #B7CE63;
   padding: 5px;
   margin: 10px;
   text-align: center;
-  border: solid 2px blue;
+  border: solid 3px #4B5842;
 }
 
 h1,
@@ -15,11 +17,11 @@ h2 {
 }
 
 h1 {
-  color: red;
+  color: #4B5842;
 }
 
 h2 {
-  color: blue;
+  color: #4B5842;
 }
 
 main {
@@ -34,10 +36,10 @@ section {
   list-style-type: none;
   margin: 10px;
   font-size: 1.25em;
-  color: blue;
-  border: solid 2px blue;
+  color: #4B5842;
+  border: solid 3px #4B5842;
   padding: 20px;
-  background-color: lightblue;
+  background-color: #B7CE63;
 }
 
 section h3 {
@@ -53,6 +55,6 @@ section a {
 
 footer {
   padding: 1px;
-  color: blue;
+  color: #4B5842;
   font-size: 20px;
 }
