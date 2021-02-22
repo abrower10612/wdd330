@@ -73,12 +73,8 @@ const loadCompletedListObject = () => {
 
 const refreshThePage = () => {
   clearListDisplay();
-  if (view = "active") {
-    renderList();
-  }
-  else {
-    renderCompletedList();
-  }
+  if (view === "active") renderList();
+  else renderCompletedList();
   clearItemEntryField();
   setFocusOnItemEntry();
   taskCounter();
@@ -88,6 +84,12 @@ const showCompleted = document.getElementById("showCompleted");
 showCompleted.addEventListener("click", (event) => {
   view = "completed";
   renderCompletedList();
+});
+
+const showActive = document.getElementById("showActive");
+showActive.addEventListener("click", (event) => {
+  view = "active";
+  renderList();
 });
 
 const clearListDisplay = () => {
@@ -104,6 +106,8 @@ const deleteContents = (parentElement) => {
 };
 
 const renderList = () => {
+  document.getElementById("completed").style.visibility === 'hidden';
+  document.getElementById("listItems").style.visibility === 'visible';
   const list = toDoList.getList();
   list.forEach(item => {
     buildListItem(item);
@@ -111,6 +115,8 @@ const renderList = () => {
 }
 
 const renderCompletedList = () => {
+  document.getElementById("completed").style.visibility === 'visible';
+  document.getElementById("listItems").style.visibility === 'hidden';
   const completedList = toDoList.getCompleted();
   completedList.forEach(item => {
     buildListItem(item);
@@ -128,15 +134,15 @@ const buildListItem = (item) => {
   const label = document.createElement("label");
   label.htmlFor = item.getId();
   label.textContent = item.getItem();
-  const deleteItem = document.createElement("button");
-  deleteItem.type = "button";
-  deleteItem.id = item.getId();
-  deleteItem.textContent = "X";
-  addClickListenerToDeleteItem(deleteItem);
-  div.appendChild(deleteItem);
+  // const deleteItem = document.createElement("button");
+  // deleteItem.type = "button";
+  // deleteItem.id = item.getId();
+  // deleteItem.textContent = "X";
+  // addClickListenerToDeleteItem(deleteItem);
+  // div.appendChild(deleteItem);
   div.appendChild(check);
   div.appendChild(label);
-  const container = document.getElementById("listItems");
+  const container = view === 'active' ? document.getElementById("listItems") : document.getElementById("completed");
   container.appendChild(div);
 };
 
@@ -200,14 +206,6 @@ const calcNextItemId = () => {
   }
   return nextItemId;
 }
-
-// const calcCompletedItemId = () => {
-//   let nextItemId = 1;
-//   const completedList = toDoList.getCompleted();
-//   if (completedList.length > 0) {
-//     nextItemId = completedList[completedList.length -1].getId() + 1;
-//   }
-// }
 
 const createNewItem = (itemId, itemText) => {
   const toDo = new ToDoItem();
