@@ -48,6 +48,7 @@ const initApp = () => {
 
   // Procedural
   loadListObject();
+  loadCompletedListObject();
   refreshThePage();
 }
 
@@ -58,6 +59,15 @@ const loadListObject = () => {
   parsedList.forEach(itemObj => {
     const newToDoItem = createNewItem(itemObj._id, itemObj._item);
     toDoList.addItemToList(newToDoItem);
+  })
+}
+
+const loadCompletedListObject = () => {
+  const completedList = localStorage.getItem("completedList");
+  if (typeof completedList != "string") return;
+  const parsedList = JSON.parse(completedList);
+  parsedList.forEach(itemObj => {
+    toDoList.addItemToCompletedList(itemObj);
   })
 }
 
