@@ -128,7 +128,7 @@ const addClickListenerToDeleteItem = (deleteItem) => {
     updatePersistentData(toDoList.getList());
     setTimeout(() => {
       refreshThePage();
-    });
+    }, 1000);
   });
 };
 
@@ -140,7 +140,7 @@ const addClickListenerToCheckbox = (item, checkbox) => {
     completedPersistentData(toDoList.getCompleted());
     setTimeout(() => {
       refreshThePage();
-    });
+    }, 1000);
   });
 };
 
@@ -192,7 +192,6 @@ const createNewItem = (itemId, itemText) => {
 } 
 
 function taskCounter() {
-
   const taskList = toDoList.getList().length;
   if (taskList === 0)
     document.getElementById("taskCount").innerHTML = "0 Tasks Left"
