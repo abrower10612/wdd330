@@ -109,12 +109,60 @@ function functionsAreObjects() {
 
 
 // VALUE VS REFERENCE TYPES
-valueVsReference();
+// valueVsReference();
 
 function valueVsReference() {
 
+  // Primitives are copied by their value
+  // Objects are copied by their reference
 
+  let x = { value: 10 };
+  let y = x;
+
+  x.value = 20;
+
+  console.log("x:");
+  console.log(x);
+
+  console.log("y:");
+  console.log(y);
+
+// new example
+  let obj = { value: 10 };
+
+  function increase(boj) {
+    obj.value++; // because obj is an object, all changes are visible inside the function and outside of it
+  }
+
+  increase(obj);
+
+  console.log(obj);
   
+}
+
+// ENUMERATING PROPERTIES OF AN OBJECT
+// enumerating();
+
+function enumerating() {
+  const circle = {
+    radius: 1,
+    draw() {
+      console.log('draw');
+    }
+  };
+
+  for (let key in circle) {
+    console.log(key, circle[key]);
+  }
+
+  //for (let key of circle) // objects are not iterable, so a for of loop cannot be used
+    // console.log(key);
+
+  for (let key of Object.keys(circle)) console.log(key);// 'Object' is a built-in constructor function
+
+  for (let entry of Object.entries(circle)) console.log(entry);
+
+  if ('radius' in circle) console.log('yes');
 }
 
 

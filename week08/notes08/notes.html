@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="notes.css">
+  <title>WDD 330 Notes</title>
+</head>
+<body>
+  <div class="mainContainer">
+
+    <h1>WDD 330 Week08 Notes</h1>
+    <div class="line"></div>
+    <h2>Chapter 8: CSS3 Transforms and Transitions</h2>
+    <div class="container">
+
+      <section>
+        <h3>Transforms</h3>
+        <p>The CSS3 transform property lets you lets you translate, rotate, scale, and/or skew any element on the page. While some of these effects were possible using previously existing CSS features (such as translating with relative and absolute positioning), CSS3 gives you unprecedented control over many more aspects of the element’s appearance.</p>
+      </section>
+      
+      <section>
+        <h3>Translation</h3>
+        <p>Translation functions allow you to move elements left, right, up, or down. These functions are similar to the behavior of position: relative; when declaring top and left, moving elements up and down or left and right along the x and y axes. When you employ a translation function, you’re moving elements without impacting the flow of the document. Unlike position: relative, which allows you to position an element either against its current position or against a parent or other ancestor, a translated element can only be moved relative to its current position.</p>
+      </section>
+
+      <section>
+        <h3>Scaling</h3>
+        <p>The scale(x,y) function scales an element by the defined factors horizontally then vertically. If only one value is provided, it will be used for both the x and y values, growing or shrinking your element or pseudo-element while maintaining the original aspect ratio. For example, scale(1) would leave the element the same size, scale(2) would double its proportions, scale(0.5) would halve them, and so on.</p>
+      </section>
+
+      <section>
+        <h3>Rotation</h3>
+        <p>The rotate() function rotates an element around the point of origin by a specified angle value. As with scale, by default the point of origin is the element’s center. Generally, angles are declared in degrees, with positive degrees moving clockwise and negative moving counterclockwise. In addition to degrees, values can be provided in grads, radians, or turns, but we’ll just be sticking with degrees.</p>
+      </section>
+
+      <section>
+        <h3>Skew</h3>
+        <p>The skew(x,y) function specifies a skew along the x and y axes. As you’d expect, the x specifies the skew on the x axis, and the y specifies the skew on the y axis. If the second parameter is omitted, the skew will only occur on the x axis</p>
+      </section>
+
+      <section>
+        <h3>Changing the Origin of the Transform</h3>
+        <p>As we hinted at earlier, you can control the origin from which your transforms are applied. This is done using the transform-origin property. It has the same syntax as the background-position property, and defaults to the center of the object (so that scales and rotations will be around the center of the box by default).</p>
+      </section>
+
+      <section>
+        <h3>Transitions</h3>
+        <p>Transitions allow the values of CSS properties to change over time, essentially providing simple animations. For example, if a link changes color on hover, you can have it gradually fade from one color to the other instead of a sudden change. They’re both transitions, but with the CSS transition property the color transition can be gradual. If the browser lacks support for transitions, the change will be immediate instead of gradual, which is fine and accessible.</p>
+      </section>
+
+      <section>
+        <h3>Transition-Property</h3>
+        <p>The transition-property property defines the CSS properties of the element that should be transitioned, with all for all properties being the default.
+
+        Any property changing from one value to another for which you can find a valid midpoint can be transitioned. For example, in transitioning from a 1px red border to a 15px blue border, we transition the color and width of the border. The midpoint of 1px and 15px is obvious (8px), so we know that is a transitionable property value. The midpoint between red and blue might not seem obvious, but the browser converts named colors to their numeric values, which have a midpoint. If the border-style were declared as changing from solid to dashed, that would not be a transitionable property as there is no midpoint between these key terms.</p>
+      </section>
+
+      <section>
+        <h3>The transition-duration Property</h3>
+        <p>The transition-duration property sets how long the transition will take: the duration of time it takes to go from the default state to the transitioned state. You can specify this either in seconds (s) or milliseconds (ms).</p>
+      </section>
+
+      <section>
+        <h3>The transition-timing-function Property</h3>
+        <p>The transition-timing-function lets you control the pace of the transition in even more granular detail. Do you want your animation to start off slow and become faster, start off fast and end slower, advance at an even keel, or some other variation?</p>
+      </section>
+
+      <section>
+        <h3>The transition-delay Property</h3>
+        <p>Finally, by using the transition-delay property, it’s possible to introduce a delay before the transition begins. Normally a transition begins immediately, so the default is 0. Include the number of milliseconds (ms) or seconds (s) to delay the transition. We don’t want our transition to start immediately, because that might be a bad user experience if the user accidentally mouses through our ad on the way from one part of the document to the next.</p>
+      </section>
+
+      <section>
+        <h3>The transition Shorthand Property</h3>
+        <p>With four transition properties and a vendor prefix, you could wind up with eight lines of CSS for a single transition. Fortunately, as with other properties such as border, there’s a shorthand available. The transition property is shorthand for the four transition properties just described.</p>
+      </section>
+
+      <section>
+        <h3>Multiple Transitions</h3>
+        <p>The transition properties allow for multiple transitions in one call. For example, if we want to change the color at the same time as changing the rotation and size, we can.
+
+        Let’s say instead of just transitioning the rotation, we transition the text’s color property as well. We’d have to first include a color property in the transitioned style declaration, and then either add the color property in the transition-property value list, or use the key term all</p>
+      </section>
+
+      <section>
+        <h3>Animations</h3>
+        <p>Transitions animate elements over time; however, they’re limited in what they can do. You can define starting and ending states, but there’s no fine-grained control over any intermediate states. CSS animations, unlike transitions, allow you to control each step of an animation via keyframes.</p>
+      </section>
+
+      <section>
+        <h3>Keyframes</h3>
+        <p>To animate an element in CSS, you first create a named animation, then attach it to an element in that element’s property declaration block. Animations in themselves don’t do anything; in order to animate an element, you’ll need to associate the animation with that element.
+
+        To create an animation, use the @keyframes rule for IE10+ and FF16+. Include @-webkit-keyframes for all WebKit implementations followed by a name of your choosing, which will serve as the identifier for the animation. Then, you can specify your keyframes.</p>
+      </section>
+
+      <section>
+        <h3>Animation Properties</h3>
+        <p>The animation properties, remembering that you will need two declarations for each property as the -webkit- prefix is still needed in WebKit browsers, are as follows in the next sections.</p>
+      </section>
+
+      <section>
+        <h3>animation-name</h3>
+        <p>This property is used to attach an animation (previously defined using the @keyframes syntax) to an element.</p>
+      </section>
+
+      <section>
+        <h3>animation-duration</h3>
+        <p>The animation-duration property defines the length of time (in seconds or milliseconds) an animation takes to complete one iteration (all the way through, from 0% to 100%)</p>
+      </section>
+
+      <section>
+        <h3>animation-timing-function</h3>
+        <p>Like the transition-timing-function property, the animation-timing-function determines how the animation will progress over its duration. The options are the same as for transition-timing-function: ease, linear, ease-in, ease-out, ease-in-out, a developer-defined cubic-bezier() function, step-start, step-end, or a developer-defined number of steps with the steps(number, direction) function.</p>
+      </section>
+
+      <section>
+        <h3>animation-iteration-count</h3>
+        <p>The animation-iteration-count property lets you define how many times the animation will play through. The value is generally an integer, but you can also use numbers with decimal points (in which case, the animation will end partway through an iteration), or the value infinite for endlessly repeating animations. If omitted, it will default to 1, in which case the animation will occur only once.</p>
+      </section>
+
+      <section>
+        <h3>animation-direction</h3>
+        <p>When the animation iterates, it normally goes from the 0% to the 100% keyframe, jumping back to the 0% when it starts a new iteration (if the animation-iteration-count is greater than 1). This is the default or normal value for animation-direction. You can use the animation-direction property to change this behavior.
+
+        The value of reverse will cause the animation to start at the 100% keyframe and work its way to the 0% keyframe for every iteration. With the alternate value, the initial iteration and odd-numbered iterations after that will go in the normal 0% to 100% direction, but the second iteration and every even iteration after that will go in the reverse direction of 100% to 0%. Similarly, the alternate-reverse animation-direction value causes the animation to alternate direction at every iteration, but it starts in reverse.</p>
+      </section>
+
+      <section>
+        <h3>animation-delay</h3>
+        <p>The animation-delay property is used to define how many milliseconds or seconds to wait before the browser begins the animation.</p>
+      </section>
+
+      <section>
+        <h3>animation-fill-mode</h3>
+        <p>The animation-fill-mode property defines what happens before the first animation iteration begins and after the last animation iteration concludes. By default, an animation has no effect on property values outside of when it’s iterating, but we can override this default behavior of animation-fill-mode: none.
+
+        The available values are none, forwards, backwards, or both. The default is none, in which case the animation proceeds and ends as expected, not inheriting the initial keyframe properties until after the delay has expired; it reverts to no longer being impacted by any of the keyframe property values when the animation completes its final iteration.
+          
+        We can tell the animation to sit and wait on the first keyframe from the moment the animation is applied to the element, through the duration of the animation delay, until the animation starts iterating with animation-fill-mode: backwards. We can also hold the element at the last keyframe, with last keyframe property values overriding the element's original property values, without reverting to the original values at the conclusion of the last animation iteration with animation-fill-mode: forwards. We can also achieve both of these with animation-fill-mode: both.</p>
+      </section>
+
+      <section>
+        <h3>animation-play-state</h3>
+        <p>The animation-play-state property defines whether the animation is running or paused. A paused animation displays the current state of the animation statically. When a paused animation is resumed, it restarts from the current position. This provides a simple way to control CSS animations from within your CSS or with JavaScript.</p>
+      </section>
+
+      <section>
+        <h3>The Shorthand animation Property</h3>
+        <p>Fortunately, there’s a shorthand for all of these animation properties, especially since we’re still including the -webkit- prefix. The animation property takes as its value a space-separated list of values for the longhand animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode, and animation-play-state properties</p>
+      </section>
+
+    </div>
+
+    <h2>Chapter 12: Canvas, SVG, and Drag and Drop</h2>
+    <div class="container">
+
+      <section>
+        <h3>Canvas</h3>
+        <p>With HTML5’s Canvas API, we can draw anything we can imagine, all through JavaScript. This can improve the performance of our websites by avoiding the need to download images off the network. With canvas, we can draw shapes and lines, arcs and text, gradients and patterns. In addition, canvas gives us the power to manipulate pixels in images and even video. We’ll start by introducing some of the basic drawing features of canvas, but then move on to using its power to transform our video—taking our modern-looking color video and converting it into conventional black and white to match the overall look and feel of The HTML5 Herald.</p>
+      </section>
+
+      <section>
+        <h3>Creating a canvas Element</h3>
+        <p>The first step to using canvas is to add a canvas element to the page. The text in between the canvas tags will only be shown if the canvas element is not supported by the visitor’s browser. Since drawing on the canvas is done using JavaScript, we’ll need a way to grab the element from the DOM. We’ll do so by giving our canvas an ID: The canvas element takes both a width and height attribute, which must also be set.</p>
+      </section>
+
+      <section>
+        <h3>Drawing on the Canvas</h3>
+        <p>All drawing on the canvas happens via the Canvas JavaScript API. In this chapter, we’ll walk you through several different things you can draw onto the canvas element. Each example will have a new function, and all of these different functions live in a file called canvas.js.</p>
+      </section>
+
+      <section>
+        <h3>Getting the Context</h3>
+        <p>Once we’ve stored our canvas element in a variable, we then set up the canvas’s context. The context is the place where your drawing is rendered. Currently, there’s only wide support for drawing to a two-dimensional context. The W3C Canvas spec defines the context in the CanvasRenderingContext2D interface. Most methods we’ll be using to draw onto the canvas are defined in this interface.</p>
+      </section>
+
+      <section>
+        <h3>Filling Our Brush with Color</h3>
+        <p>On a real-life painting canvas, you must first saturate your brush with paint before you can begin. In the HTML5 canvas, you must do the same, and we do so with the strokeStyle or fillStyle properties. Both strokeStyle and fillStyle are set on a context object, and both take one of three values: a string representing a color, a CanvasGradient object, or a CanvasPattern object.</p>
+      </section>
+
+      <section>
+        <h3>Drawing a Rectangle to the Canvas</h3>
+        <p>Once we’ve defined the color of the stroke and the fill, we’re ready to start drawing! Let’s begin by drawing a rectangle. We can repeat the steps we just took: grabbing the canvas and the context, and setting a fill and stroke style. But now, we’ll draw a rectangle. We can do this by calling the fillRect and strokeRect methods. Both of these methods take the X and Y coordinates where you want to begin drawing the fill or the stroke, and the width and height of the rectangle.</p>
+      </section>
+
+      <section>
+        <h3>Variations on fillStyle</h3>
+        <p>Instead of a color as our fillStyle, we could have used a CanvasGradient or a CanvasPattern object. Let’s create a pattern on the second canvas element (whose ID is demo2) on the canvas.html page. We create a CanvasPattern by calling the createPattern method. createPattern takes two parameters: the image to create the pattern with, and how that image should be repeated. The repeat value is a string, and the valid values are the same as those in CSS: repeat, repeat-x, repeat-y, and no-repeat.</p>
+      </section>
+
+      <section>
+        <h3>Drawing Other Shapes by Creating Paths</h3>
+        <p>We’re not limited to drawing rectangles—we can draw any shape we can imagine! Unlike rectangles and squares, however, there’s no built-in method for drawing circles or other shapes. To draw more interesting shapes, we must first lay out the path of the shape. Paths create a blueprint for your lines, arcs, and shapes, but paths are invisible until you give them a stroke! When we drew rectangles, we first set the strokeStyle and then called fillRect. With more complex shapes, we need to take three steps: layout the path, stroke the path, and fill the path. As with drawing rectangles, we can just stroke the path, or fill the path—or we can do both.</p>
+      </section>
+
+      <section>
+        <h3>Saving Canvas Drawings</h3>
+        <p>If we create an image programmatically using the Canvas API, but decide we’d like to have a local copy of our drawing, we can use the API’s toDataURL method to save our drawing. toDataURL creates a URL with the image in it, (either a png or jpg, whichever is specified). You can then right-click the image at this URL, and save it as a PNG or JPEG.</p>
+      </section>
+
+      <section>
+        <h3>Manipulating Images</h3>
+        <p>Redrawing an image element from the page onto a canvas is fairly unexciting. It’s really no different from using an img element. Where it does become interesting is how we can manipulate an image after we’ve drawn it into the canvas.
+
+        Once we’ve drawn an image on the canvas, we can use the getImageData method from the Canvas API to manipulate the pixels of that image. For example, if we wanted to convert our logo from color to black and white, we can do so using methods in the Canvas API.</p>
+      </section>
+
+      <section>
+        <h3>Security Errors with getImageData</h3>
+        <p>If you tried out this code by double-clicking the file in Chrome or Firefox (in other words, you’re not using a web server to view the file), you may have noticed that it failed to work—the image on the canvas is in color. That’s because when you’re running the code locally on your computer, you’ll be using the file:// protocol to open local files. And files loaded with the file:// protocol are considered to come from different domains, which is deemed a security error. What you’ll see specifically is an error in getImageData. The error is a security error, though in our case it’s an unnecessary one.</p>
+      </section>
+
+      <section>
+        <h3>Displaying Text on the Canvas</h3>
+        <p>If we were to view The HTML5 Herald from a file on a computer, we’d encounter security errors in Firefox and Chrome when trying to manipulate an entire video, as we did with a simple image. We can add a bit of error-checking in order to make our video work anyway, whether or not we view it from our local machine in Chrome or Firefox.</p>
+      </section>
+
+      <section>
+        <h3>Accessibility Concerns</h3>
+        <p>A major downside of canvas in its current form is its lack of accessibility. The canvas doesn’t create a DOM node, is not a text-based format, and is thus essentially invisible to tools such as screen readers. For example, even though we wrote text to the canvas in our last example, that text is essentially no more than a bunch of pixels and is therefore inaccessible―it’s just like an image that contains text.
+
+        The HTML5 community is aware of these failings, and while no solution has been finalized, debates on how canvas could be changed to make it accessible are underway. You can read a compilation of the arguments and currently proposed solutions on the W3C’s wiki page.</p>
+      </section>
+
+      <section>
+        <h3>SVG</h3>
+        <p>SVG stands for Scalable Vector Graphics, a specific file format that allows you to describe vector graphics using XML. A major selling point of vector graphics in general is that, unlike bitmap images (such as GIF, JPEG, PNG, and TIFF), vector images preserve their quality even as you blow them up or shrink them down. We can use SVG to do many of the same tasks we can do with canvas, including drawing paths, shapes, text, gradients, and patterns. There are also very useful open-source tools relevant to SVG, some of which we’ll leverage in order to add a spinning progress indicator to The HTML5 Herald’s geolocation widget.</p>
+      </section>
+
+      <section>
+        <h3>Drawing in SVG</h3>
+        <p>“Drawing a circle in SVG is arguably easier than drawing a circle with canvas. The viewBox attribute defines the starting location, width, and height of the SVG image. The circle element defines a circle, with cx and cy the X and Y coordinates of the center of the circle. The radius is represented by r, while fill defines the fill style.</p>
+      </section>
+
+      <section>
+        <h3>Using the Raphael Library</h3>
+        <p>Raphaël is an open-source JavaScript library that makes drawing and animating with SVG much easier.</p>
+      </section>
+
+      <section>
+        <h3>Canvas versus SVG</h3>
+        <p>Both canvas and SVG allow you to draw custom shapes, paths, and fonts. Canvas allows for pixel manipulation, as we saw when we turned our video from color to black and white. One downside of canvas is that it operates in what’s known as immediate mode. This means that if you ever want to add more to the canvas, you’re unable to simply add to what’s already there. Every time you finish drawing a shape, the canvas no longer has access to that shape, because it won’t persist as an object that you can modify. So if you want to add to what you’ve already drawn on the canvas, you must redraw the new shape from scratch. Still, canvas does allow you to save the images you create to a PNG or JPEG file. By contrast, what you draw to SVG is accessible via the DOM, because its mode is retained mode, meaning that the structure of the image is preserved in the XML document that describes it. SVG also has, at this time, a more complete set of tools to help you work with it, such as the Raphaël library and Inkscape. However, since SVG is a file format—rather than a set of methods that allows you to dynamically draw on a surface—you can’t manipulate SVG images the way you can manipulate pixels on canvas. It would have been impossible, for example, to use SVG to convert our color video to black and white as we did with canvas.</p>
+      </section>
+
+      <section>
+        <h3>Drag and Drop</h3>
+        <p>The Drag and Drop API allows us to specify that certain elements are draggable, and then specify what should happen when these draggable elements are dragged over or dropped onto other elements on the page.</p>
+      </section>
+
+      <section>
+        <h3>The DataTransfer</h3>
+        <p>“DataTransfer objects are one type of object outlined in the Drag and Drop API. These objects allow us to set and get data about the elements that are being dragged. Specifically, DataTransfer lets us define two pieces of information, the type of data we’re saving of the draggable element and the value of the data itself.</p>
+      </section>
+
+    </div>
+
+  </div>
+</body>
+</html>
