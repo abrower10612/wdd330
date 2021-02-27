@@ -8,9 +8,9 @@ main {
   flex-flow: column wrap;
 }
 
-.hidden {
+/* .hidden {
   display: none;
-}
+} */
 
 #shiplist td {
   cursor: pointer;

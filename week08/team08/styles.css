@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+  font-family: Montserrat, sans-serif;
+}
+main {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+h1 {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#detailsbox {
+  flex: 1 0 15em;
+  padding: 1em;
+  text-align: center;
+  border: 2px solid;
+}
+
+#detailsbox dl {
+  border: 1px solid;
+  text-align: left;
+}
+
+#pokemonList {
+  flex-flow: row wrap;
+  list-style-type: none;
+  margin: 0 auto;
+  border: solid 2px lightblue;
+  font-size: 30px;
+}
+
+#pokemonList a {
+  color: black;
+  text-decoration: none;
+}
+
+#pokemonList td {
+  cursor: pointer;
+}
+
+#pokemonList thead {
+  background-color: lightblue;
+}
+
+#pokemonList tr {
+  border: 1px solid;
+  height: 44px;
+  text-align: center;
+}
+#pokemonList tr:nth-child(even) {
+  background-color:lightblue;
+}
+#pokemonList tr:hover {
+  background-color: lightgreen;
+  text-decoration: underline;
+}
+
+.buttons {
+  text-align: center;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.buttons a {
+  color: black;
+}
