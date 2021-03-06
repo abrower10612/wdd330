@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="notes.css">
+  <title>WDD 330 Notes</title>
+</head>
+<body>
+  <div class="mainContainer">
+    <h1>WDD 330 Week09 Notes</h1>
+    <div class="line"></div>
+
+    <h2>Chapter 9: The Window Object</h2>
+    <div class="container">
+      <section>
+        <h3>The Browser Object Model</h3>
+        <p>The Browser Object Model (or BOM for short) is a collection of properties and methods that contain information about the browser and computer screen. For example, we can find out which browser is being used to view a page (though, this method is unreliable). We can also find out the dimensions of the screen it is viewed on, and which pages have been visited before the current page. It can also be used for the rather dubious practice of creating pop-up windows, if you’re into annoying your users. There is no official standard for the BOM, although there are a number of properties and methods that are supported by all the major browsers, making a sort of de facto standard. These properties and methods are made available through the window object. Every browser window, tab, popup, frame, and iframe has a window object.</p>
+      </section>
+      <section>
+        <h3>Going Global</h3>
+        <p>Global variables are variables that are created without using the const, let or var keywords. Global variables can be accessed in all parts of the program. Global variables are actual properties of a global object. In a browser environment, the global object is the window object.</p>
+      </section>
+      <section>
+        <h3>Dialogs</h3>
+        <p>“Three functions that produced dialogs in the browsers are alert(), confirm() and prompt(). These are not part of the ECMAScript standard, although all major browsers support them as methods of the window object. The window.alert() method will pause the execution of the program and display a message in a dialog box. The message is provided as an argument to the method, and undefined is always returned. The window.confirm() method will stop the execution of the program and display a confirmation dialog that shows the message provided as an argument, and giving the options of OK or Cancel. It returns the boolean values of true if the user clicks OK, and false if the user clicks Cancel. The window.prompt() method will stop the execution of the program. It displays a dialog that shows a message provided as an argument, as well as an input field that allows the user to enter text. This text is then returned as a string when the user clicks OK. If the user clicks Cancel, null is returned</p>
+      </section>
+      <section>
+        <h3>Browser Information</h3>
+        <p>The window object has a number of properties and methods that provide information about the user’s browser. The window object has a navigator property that returns a reference to the Navigator object. The Navigator object contains information about the browser being used. Its userAgent property will return information about the browser and operating system being used. The window.location property is an object that contains information about the URL of the current page. It contains a number of properties that provide information about different fragments of the URL.</p>
+      </section>
+      <section>
+        <h3>The Browser History</h3>
+        <p>The window.history property can be used to access information about any previously visited pages in the current browser session. Avoid confusing this with the new HTML5 History API. The window.history.length property shows how many pages have been visited before arriving at the current page.</p>
+      </section>
+      <section>
+        <h3>Controlling Windows</h3>
+        <p>A new window can be opened using the window.open() method. This takes the URL of the page to be opened as its first parameter, the window title as its second parameter, and a list of attributes as the third parameter. This can also be assigned to a variable, so the window can then be referenced later in the code.</p>
+      </section>
+      <section>
+        <h3>Screen Information</h3>
+        <p>The window.screen object contains information about the screen the browser is displayed on. You can find out the height and width of the screen in pixels using the height and width properties respectively.</p>
+      </section>
+      <section>
+        <h3>The Document Object</h3>
+        <p>Each window object contains a document object. This object has properties and methods that deal with the page that has been loaded into the window.</p>
+      </section>
+      <section>
+        <h3>document.write()</h3>
+        <p>The write() method simply writes a string of text to the page. If a page has already loaded, it will completely replace the current document. The document.write() method can also be used within a document inside script tags to inject a string into the markup. This will not overwrite the rest of the HTML on the page.</p>
+      </section>
+      <section>
+        <h3>Cookies</h3>
+        <p>Cookies are small files that are saved locally on a user’s computer. They were invented by Netscape as a way of getting round HTTP being a stateless protocol. This means that a browser does not remember anything from one request to another. So every time a user visits a page, nothing about any previous visits is remembered. Cookies can be used to sidestep this problem by storing information that can then be retrieved between requests. A restriction of cookies is that they can only be read by a web page from the same domain that set them. This is to stop sites being able to access information about users, such as other sites they have visited. Cookies are also limited to storing up to 4KB of data, although 20 cookies are allowed per domain, which can add up to quite a lot of data. Cookies can be used for personalizing a user’s browsing experience, storing user preferences, keeping track of user choices (such as a shopping cart), authentication and tracking users. The use of cookies for tracking purposes has been much maligned in recent years. Their use for data storage is starting to be replaced in many cases by the new HTML5 localStorage API as it allows more data to be stored.
+          </p>
+      </section>
+      <section>
+        <h3>Creating Cookies</h3>
+        <p>To create a cookie, you assign it to JavaScript’s 'cookie jar', using the document.cookie property. The document.cookie property acts like a special type of string. Assigning another cookie to it won’t overwrite the entire property, it will just append it to the end of the string. </p>
+      </section>
+      <section>
+        <h3>Changing Cookie Values and Reading Cookies</h3>
+        <p>A cookie’s value can be changed by reassigning it to document.cookie using the same name but a different value.To see the current contents of the cookie jar, simply enter document.cookie.</p>
+      </section>
+      <section>
+        <h3>Cookie Expiry Dates</h3>
+        <p>Cookies are session cookies by default. This means they are deleted once a browser session is finished (when the user closes the browser tab or window). Cookies can be made persistent ― that is, lasting beyond the browser session ― by adding "; expires=date" to the end of the cookie when it’s set, where date is a date value in the UTC String format Day, DD-Mon-YYYY HH:MM:SS GMT.</p>
+      </section>
+      <section>
+        <h3>The Path and Domain of Cookies</h3>
+        <p>By default, cookies can only be read by pages inside the same directory and domain as the file was set. This is for security reasons so that access to the cookie is limited. The path can be changed so that any page in the root directory can read the cookie. It’s done by adding the string '; path=/' to the end of the cookie when it is set. A cookie can only be read by the domain that created it anyway, but doing this will allow all subdomains of sitepoint.com (such as javascript.sitepoint.com and books.sitepoint.com) to read it.</p>
+      </section>
+      <section>
+        <h3>Secure Cookies</h3>
+        <p>Adding the string '; secure' to the end of a cookie will ensure it’s only transmitted over a secure HTTPS network.</p>
+      </section>
+      <section>
+        <h3>Deleting Cookies</h3>
+        <p>To remove a cookie, you need to set it to expire at a time in the past. If a cookie is a session cookie, it will expire when the tab or window is closed.</p>
+      </section>
+      <section>
+        <h3>Timing Functions</h3>
+        <p>The window object provides some useful methods for scheduling the execution of a function, and for repeatedly executing functions at regular intervals. The window.setTimeout() method accepts a callback to a function as its first parameter and a number of milliseconds as its second parameter.</p>
+      </section>
+      <section>
+        <h3>setInterval()</h3>
+        <p>The window.setInterval() method works in a similar way to window.setTimeout(), except that it will repeatedly invoke the callback function after every given number of milliseconds.</p>
+      </section>
+      <section>
+        <h3>Animation</h3>
+        <p>The setTimeout() and setInterval() methods can be used to animate elements on a web page.</p>
+      </section>
+      <section>
+        <h3>requestAnimationFrame</h3>
+        <p>This method of the window object works in much the same way as the window.setInterval() method, although it has a number of improvements to optimize its performance. These include making the most of the browser’s built-in graphics-handling capabilities, and not running the animation when the tab is inactive, resulting in a much smoother performance. It’s supported in all major browsers, including Internet Explorer from version 10 onwards.</p>
+      </section>
+    </div>
+
+    <h2>Chapter 14: HTML5 APIs</h2>
+    <div class="container">
+      <section>
+        <h3>HTML5</h3>
+        <p>The HTML5 specification is separated into modules that allow different features to be developed at different paces then implemented without having to wait for other features to be completed. It also means that when a previously unforeseen development occurs, a new module can be created to cater for it. Modules can be at different stages of maturity, from ideas to full implementation.</p>
+      </section>
+      <section>
+        <h3>The data- Attribute</h3>
+        <p>“The data- attribute is a way of embedding data in a web page using custom attributes that are ignored by the browser. They’re also private to a page, so are not intended to be used by an external service – their sole purpose is to be used by a JavaScript program. This means they’re perfect for adding data that can be used as a hook that the program utilizes to access information about a particular element on the page. The names of these attributes can be decided by the developer, but they must start with data-, contain only lowercase letters, numbers, hyphens, dots, colons or underscores, and include an optional string value.</p>
+      </section>
+      <section>
+        <h3>HTML5 APIs</h3>
+        <p>The HTML5 specification contains a number of APIs that help to gain access to hardware, such as cameras, batteries, geolocation, and the graphics card. Hardware evolves quickly, and APIs are frequently introduced to give developers access, and control new features that appear in the latest devices.</p>
+      </section>
+      <section>
+        <h3>HTML5 Web Storage</h3>
+        <p>“The Web Storage API provides a key-value store on the client’s computer that is similar to using cookies but has fewer restrictions, more storage capacity, and is generally easier to use. This makes it perfect for storing information about users, as well as storing application-specific information that can then be used during future sessions. The Web Storage API has some crucial differences with cookies. Information stored is not shared with the server on every request. Information is available in multiple windows of the browser (but only if the domain is the same). Storage capacity limit is much larger than the 4KB limit for cookies (there is no actual limit in the specification, but most browsers have a limit set at 5GB per domain). Any data stored does not automatically expire as it does with cookies. This potentially makes cookies a better choice for something like showing a popup once a day. If a browser supports the Web Storage API, the window object will have a property called localStorage, which is a native object with a number of properties and methods used to store data. The information is saved in the form of key-value pairs, and the values can only be strings. There is also a sessionStorage object that works in the same way, although the data is only saved for the current session.</p>
+      </section>
+      <section>
+        <h3>Geolocation</h3>
+        <p>The Geolocation API is used to obtain the geographical position of the device. This means it can be used to find the user’s exact location, then link to nearby places or measure the speed at which the user is moving. This information can then be used to filter data based on the user's location or speed and direction of travel. An example of this might be a search function that returns results based on your location. Because of privacy concerns, permission to use this has to be granted by the user first. The position object has several other properties that can be used to find out information about the location and movement of the device. The position.speed property returns the ground speed of the device in meters per second. The position.altitude property returns an estimate of the device’s altitude in meters above the WGS84 ellipsoid, which is a standard measurement for the center of the Earth. The position.heading property returns the direction the device is moving in. This is measured as a bearing in degrees, clockwise from North. The position.timestamp property returns the time that the position information was recorded. “The position object also has properties that calculate the accuracy of the measurements. These can be useful, as sometimes you only need to know the town or city users are in, while at other times you may need their exact position. position.accuracy property returns the accuracy of the latitude and longitude properties in meters. The lower the returned value, the more accurate the measurements are, as is the case for the position.altitudeAccuracy property, which returns the accuracy of the altitude property in meters. In addition, the geolocation object has a watchPosition() method that will call a callback function every time the position of the device is updated. This method returns an ID that can be used to reference the position being watched.</p>
+      </section>
+      <section>
+        <h3>Web Workers</h3>
+        <p>JavaScript is a single-threaded language, meaning that only one process can run at one time. Web workers allow processes to be run in the background, adding support for concurrency in JavaScript. The idea is that any processes that could take a long time are carried out in the background, so a website will continue to function without fear of the dreaded 'script has become unresponsive' message that occurs when a script runs for too long. Web workers use the concept of messages to communicate back and forth between the main script and worker script. The postMessage() method can be used to send a message and start the worker working. The argument to this method can send any data to the web worker.</p>
+      </section>
+      <section>
+        <h3>Shared Web Workers</h3>
+        <p>Web workers allow computationally complex operations to be performed in a separate thread, meaning that the flow of a program won’t suffer interruptions, and an application will not freeze or hang. They are a useful feature that help to keep sites responsive, even when complicated operations are being carried out.</p>
+      </section>
+      <section>
+        <h3>Service Workers</h3>
+        <p>The Service Worker API allows a worker script to run in the background with the added benefit of being able to intercept network requests. This allows you to take alternative action if the network is offline, and effectively create app-like offline experiences. Service workers also allow access to push notifications and background syncing. Service workers require a secure network to run on HTTPS to avoid any malicious code hijacking network requests.</p>
+      </section>
+      <section>
+        <h3>Websockets</h3>
+        <p>The main form of communication on the web has always been the HTTP protocol. This uses a system of request and response to send data back and forth. A problem with this method of communication is when you only get a response when a request is sent. But what if the response comes later? For example, imagine a chat application. You send a message to somebody then wait for a reply, but you can't get a reply unless you send them another request... and you'll only get the reply if they have sent the response when you send your request. How long do you wait until you send the next request? This was partially solved using Ajax and a method called ‘polling’ where a request was periodically sent to see if there had been a response. Websocket is a new protocol that allows two-way communication with a server – also known as push messaging. This means that a connection is kept open and responses are ‘pushed’ to the client as soon as they are received.</p>
+      </section>
+      <section>
+        <h3>Notifications</h3>
+        <p>The Notification API allows you to show messages using the system's notifications. This is usually a popup in the corner of the screen, but it changes depending on the operating system. An advantage of using the system notification is that they will still be displayed even if the web page that calls them isn't the current tab. Before you can send notifications, you need to get permission granted by the user. This can be achieved using the requestPermission() method of a Notification global object.</p>
+      </section>
+      <section>
+        <h3>Multimedia</h3>
+        <p>Before HTML5, it was notoriously difficult to display audio and video in browsers, and plugins such as Flash often had to be used. HTML5 introduced the audio and video tags used to insert audio and video clips into a web page. It also introduced a Media API for controlling the playback of the clips using JavaScript. An audio clip can be inserted into a page with the audio tag, using the src attribute to point to the audio file. A video clip can be inserted with the video tag, using the src attribute to point to the movie file. Any content inside the audio or video tags will only display if the browser does not support them; hence, it can be used to display a message to users of older browsers without support for these features. The controls attribute can be added (without any value) and will display the browser’s native controls, such as play, pause, and volume control. Audio and video elements have a number of properties and methods to control the playback of the clip: video.play(), video.pause(), video.volume = 0.9;, video.muted = true;, video.currentTime += 10;, video.playbackRate = 8;, video.loop = true;, and video.duration;. Audio and video clips also have a number of events that will fire when they occur, including the play event, which fires when the clip starts and when it resumes after a pause; the pause event, which fires when the clip is paused; the volumechange event, which fires when the volume is changed; and the loadedmetadata event, which fires when all the video's metadata has loaded. The audio and video elements bring native support for multimedia into the browser, and the API gives developers full control of the playback of audio tracks and video clips.</p>
+      </section>
+      <section>
+        <h3>Drawing with Canvas</h3>
+        <p>The canvas element was introduced to allow graphics to be drawn onto a web page in real time using JavaScript. A canvas element is a rectangular element on the web page. It has a coordinate system that starts at (0,0) in the top-left corner. To add a canvas element to a page, the canvas tag is used specifying a height and width. Anything placed inside the tag will only display if the canvas element is unsupported. The lineWidth property can be used to set the width of any line strokes drawn onto the canvas. It defaults to one pixel and remains the same until it’s changed. The fillRect() method can draw a filled-in rectangle. The first two parameters are the coordinates of the top-left corner, the third parameter is the width, and the last parameter is the height. The strokeRect() method works in the same way, but produces a rectangle that is not filled in. This will draw the outline of a rectangle underneath the last one. Straight lines can be drawn employing the moveTo() and lineTo() methods. These methods can be used together to produce a path. Nothing will actually be drawn onto the canvas until the stroke() method is called. The arc() method can be used to draw an arc of a given radius from a particular point. The first two parameters are the coordinates of the center of the arc; the next parameter is the radius, followed by the start angle, then the finish angle (note that these are measured in radians). The last parameter is a boolean value that says whether the arc should be drawn counter-clockwise. The fillText() method is used to write text onto the canvas. The first parameter is the text to be displayed, while the next two parameters are the x and y coordinates, respectively. The font property can be used to set the font style used, otherwise the style is inherited from the canvas element’s CSS setting (note that it needs to be changed before the fillText() method is used to draw the text).</p>
+      </section>
+      <section>
+        <h3>Shims and Polyfills</h3>
+        <p>HTML5 APIs progress at a rapid rate ― new APIs are constantly being introduced, and existing APIs often change. Modern browsers are very quick to update and implement many of the changes, but you can’t always guarantee that users will have the most up-to-date browser. This is where a shim or a polyfill comes in handy. These are libraries of code that allow you to use the APIs as usual. They then fill in the necessary code that's not provided natively by the user’s browser. The terms shim and polyfill are often used interchangeably. The main difference between them is that a shim is a piece of code that adds some missing functionality to a browser, although the implementation method may differ slightly from the standard API. A polyfill is a shim that achieves the same functionality, while also using the API commands that would be used if the feature was supported natively. This means that your code can use the APIs as normal and it should work as expected in older browsers. The advantage here is that the same set of standard API commands can be used ― you don’t need to write additional code to deal with different levels of support. And when users update their browsers, the transition will be seamless, as their experience will remain the same. Once you are confident that enough users have up-to-date browsers, you can remove the polyfill code without having to update any actual JavaScript code.</p>
+      </section>
+    </div>
+
+
+  </div>
+</body>
+</html>
