@@ -54,8 +54,12 @@ section {
 }
 
 #wireframeBack {
-  font-size: 1.25em;
-  margin: 10px;
+  top: 5px;
+  left: 5px;
+  background-color: $blue;
+  position: fixed;
+  padding: 0px 3px;
+  border-radius: 50%;
 }
 
 // FOOTER

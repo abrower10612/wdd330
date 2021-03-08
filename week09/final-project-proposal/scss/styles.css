@@ -44,8 +44,12 @@ section {
 }
 
 #wireframeBack {
-  font-size: 1.25em;
-  margin: 10px;
+  top: 5px;
+  left: 5px;
+  background-color: #3464b4;
+  position: fixed;
+  padding: 0px 3px;
+  border-radius: 50%;
 }
 
 footer {
@@ -208,10 +212,26 @@ header h3 {
   font-size: 1.25em;
 }
 
+#mobile h1 {
+  padding-top: 5px;
+}
+
 #mobile a {
   text-align: center;
   display: block;
   color: #3464b4;
+}
+
+#mobile #wireframeBack {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #FFFFFF;
+  background-color: #3464b4;
+}
+@media all and (min-width: 600px) {
+  #mobile #wireframeBack {
+    font-size: 50px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
