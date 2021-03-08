@@ -1,0 +1,38 @@
+$blue: #3464b4;
+$green: #64a454;
+$gray: #e7e8e9;
+
+// HEADER
+
+body {
+  margin: 0;
+  padding: 0;
+  background: $gray;
+}
+
+header {
+  background-color: $gray;
+}
+
+nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 10px;
+  list-style-type: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+
+}
+
+section {
+  background: $green;
+  padding: 20px;
+  margin: 20px;
+}
