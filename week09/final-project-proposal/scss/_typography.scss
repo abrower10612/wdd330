@@ -8,21 +8,21 @@
 
 h1 {
   font-size: 1.5em;
-  @media all and (min-width: 600px) {
+  @media (min-width: 600px) {
     font-size: 3em;
   }
 }
 
 header h2 {
   font-size: 1.25em;
-  @media all and (min-width: 600px) {
+  @media (min-width: 600px) {
     font-size: 2.5em;
   }
 }
 
 header h3 {
   font-size: 1em;
-  @media all and (min-width: 600px) {
+  @media (min-width: 600px) {
     font-size: 2em;
   }
 }
@@ -36,7 +36,7 @@ header h3 {
 }
 
 section  {
-  @media all and (min-width: 600px) {
+  @media (min-width: 600px) {
     h2 {
       font-size: 2em;
     }
@@ -45,4 +45,8 @@ section  {
       font-size: 1.5em;
     }
   }
+}
+
+#styling h3 {
+  font-size:  1.25em;
 }
