@@ -24,8 +24,37 @@ header {
 section {
   background: $green;
   padding: 20px;
-  margin: 20px;
+  // margin: 20px;
 }
+
+#overview {
+  background-color: $blue;
+  color: #FFFFFF;
+}
+
+#data {
+  background-color: $gray;
+  color: #000000;
+}
+
+#modules {
+  background-color: $blue;
+}
+
+#wireframes {
+  background-color: $green;
+  color: #000000;
+}
+
+#styling {
+  background-color: $gray;
+}
+
+#schedule {
+  background-color: $blue;
+  color: #FFFFFF;
+}
+
 
 // WIREFRAMES
 

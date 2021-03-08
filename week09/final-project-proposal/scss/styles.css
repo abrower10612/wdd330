@@ -17,7 +17,34 @@ header {
 section {
   background: #64a454;
   padding: 20px;
-  margin: 20px;
+}
+
+#overview {
+  background-color: #3464b4;
+  color: #FFFFFF;
+}
+
+#data {
+  background-color: #e7e8e9;
+  color: #000000;
+}
+
+#modules {
+  background-color: #3464b4;
+}
+
+#wireframes {
+  background-color: #64a454;
+  color: #000000;
+}
+
+#styling {
+  background-color: #e7e8e9;
+}
+
+#schedule {
+  background-color: #3464b4;
+  color: #FFFFFF;
 }
 
 #wireframes {
@@ -59,13 +86,16 @@ footer {
 }
 
 header span {
-  position: absolute;
   top: 10px;
   right: 35px;
   font-size: 36px;
   margin-left: 50px;
   position: fixed;
   color: #3464b4;
+  background-color: #e7e8e9;
+  border: solid 2px #3464b4;
+  padding: 0 5px;
+  height: 50px;
   cursor: pointer;
 }
 @media all and (min-width: 600px) {
