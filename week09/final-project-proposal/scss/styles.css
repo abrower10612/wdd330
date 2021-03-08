@@ -246,6 +246,10 @@ header h3 {
   font-size: 1.25em;
 }
 
+#modules {
+  color: white;
+}
+
 #mobile h1 {
   padding-top: 5px;
 }
