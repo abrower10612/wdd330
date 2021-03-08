@@ -20,6 +20,24 @@ section {
   margin: 20px;
 }
 
+#wireframes {
+  display: flex;
+  flex-flow: column;
+}
+
+#wireframes a {
+  width: 75px;
+  color: black;
+  text-decoration: none;
+  border: solid 2px black;
+  border-radius: 5px;
+  background-color: #3464b4;
+  color: #FFFFFF;
+  margin: 10px 0;
+  padding: 3px 10px;
+  text-align: center;
+}
+
 footer {
   text-align: center;
   color: #3464b4;
