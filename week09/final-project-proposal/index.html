@@ -11,18 +11,24 @@
   <header>
     <img src="images/Forekala.png" alt="">
     <h1>Final Project Proposal</h1>
-    <nav>
-      <ul>
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#audience">Audience</a></li>
-        <li><a href="#dataSources">Data Sources</a></li>
-        <li><a href="#moduleList">Module List</a></li>
-        <li><a href="#wireframes">Wireframes</a></li>
-        <li><a href="#styling">Styling</a></li>
-        <li><a href="#projectSchedule">Project Schedule</a></li>
-      </ul>
-    </nav>
+    <h2>Andrew Brower</h2>
+    <h3>WDD 330</h3>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#" onclick="closeNav()">Overview</a>
+      <a href="#audience" onclick="closeNav()">Audience</a>
+      <a href="#data" onclick="closeNav()">Data</a>
+      <a href="#modules" onclick="closeNav()">Modules</a>
+      <a href="#wireframes" onclick="closeNav()">Wireframes</a>
+      <a href="#styling" onclick="closeNav()">Styling</a>
+      <a href="#schedule" onclick="closeNav()">Schedule</a>
+    </div>
+
+
   </header>
+
   <main>
 
     <section id="overview">
@@ -31,13 +37,14 @@
     
     <section id="audience">
       <h2>Audience</h2>
+      <p>The audience of Forekala will consist of individuals and families who are wanting to get a better grip on their finances.</p>
     </section>
       
-    <section id="dataSources">
+    <section id="data">
       <h2>Data Sources</h2>
     </section>
       
-    <section id="moduleList">
+    <section id="modules">
       <h2>Module List</h2>
     </section>
 
@@ -49,13 +56,16 @@
       <h2>Styling</h2>
     </section>
 
-    <section id="projectSchedule">
+    <section id="schedule">
       <h2>Project Schedule</h2>
     </section>
 
   </main>
-  <footer>
 
+  <footer>
+    <p>&copy; 2021 Andrew Brower</p>
   </footer>
+
+  <script src="js/scripts.js"></script>
 </body>
 </html>
