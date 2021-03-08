@@ -6,6 +6,7 @@ header span {
   margin-left: 50px;
   position: fixed;
   color: $blue;
+  cursor: pointer;
   @media all and (min-width: 600px) {
     font-size: 50px;
   }
