@@ -34,6 +34,11 @@ section {
   flex-flow: column;
 }
 
+#mobile div {
+  border: solid 2px $blue;
+  margin: 20px;
+}
+
 
 #wireframes a {
   width: 75px;

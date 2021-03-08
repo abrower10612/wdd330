@@ -25,6 +25,11 @@ section {
   flex-flow: column;
 }
 
+#mobile div {
+  border: solid 2px #3464b4;
+  margin: 20px;
+}
+
 #wireframes a {
   width: 75px;
   color: black;
@@ -140,6 +145,12 @@ header img {
   }
 }
 
+#mobile img {
+  display: block;
+  margin: 20px auto 40px auto;
+  width: 90%;
+}
+
 * {
   font-family: "Noto Sans JP", sans-serif;
 }
@@ -190,6 +201,12 @@ header h3 {
 
 #styling h3 {
   font-size: 1.25em;
+}
+
+#mobile a {
+  text-align: center;
+  display: block;
+  color: #3464b4;
 }
 
 /*# sourceMappingURL=styles.css.map */
