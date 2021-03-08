@@ -42,6 +42,7 @@ function playSound(e) {
       if (keyCount.A == 10) {
         key.style.transform = "translateY(0%)";
         keyCount.A = 0;
+        key.style.color = "#FFFFFF";
       };
     }
 
@@ -51,6 +52,7 @@ function playSound(e) {
       if (keyCount.S == 10) {
         key.style.transform = "translateY(0%)";
         keyCount.S = 0;
+        key.style.color = "#FFFFFF";
       };
     }
 
@@ -60,6 +62,7 @@ function playSound(e) {
       if (keyCount.D == 10) {
         key.style.transform = "translateY(0%)";
         keyCount.D = 0;
+        key.style.color = "#FFFFFF";
       };
     }
 
@@ -69,6 +72,7 @@ function playSound(e) {
       if (keyCount.F == 10) {
         key.style.transform = "translateY(0%)";
         keyCount.F = 0;
+        key.style.color = "#FFFFFF";
       };
     }
 
@@ -78,6 +82,7 @@ function playSound(e) {
       if (keyCount.G == 10) {
         key.style.transform = "translateY(0%)";
         keyCount.G = 0;
+        key.style.color = "#FFFFFF";
       };
     }
 
@@ -87,6 +92,7 @@ function playSound(e) {
       if (keyCount.H == 10) {
         key.style.transform = "translateY(0%)";
         keyCount.H = 0;
+        key.style.color = "#FFFFFF";
       };
     }
 
@@ -96,6 +102,7 @@ function playSound(e) {
       if (keyCount.J == 10) {
         key.style.transform = "translateY(0%)";
         keyCount.J = 0;
+        key.style.color = "#FFFFFF";
       };
     }
 
@@ -105,6 +112,7 @@ function playSound(e) {
       if (keyCount.K == 10) {
         key.style.transform = "translateY(0%)";
         keyCount.K = 0;
+        key.style.color = "#FFFFFF";
       };
     }
 
@@ -114,6 +122,7 @@ function playSound(e) {
       if (keyCount.L == 10) {
         key.style.transform = "translateY(0%)";
         keyCount.L = 0;
+        key.style.color = "#FFFFFF";
       };
     }
 
@@ -130,5 +139,15 @@ function removeTransition(e) {
 
 const keys = document.querySelectorAll('.key');
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+function touchSound(e) {
+  const audio = document.querySelector(`audio[data-key="${e.id}"]`);
+  const key = document.querySelector(`.key[data-key="${e.id}"]`);
+  if (key == null) return;
+  if(!audio) return; // stop the function from running
+  audio.currentTime = 0; // rewind to start of audio file
+  audio.play();
+  key.classList.add('playing');
+}
 
 window.addEventListener('keydown', playSound);

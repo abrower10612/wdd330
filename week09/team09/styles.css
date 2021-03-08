@@ -1,6 +1,6 @@
 html {
   font-size: 10px;
-  background: url('images/background.jpg') bottom center;
+  background: url('images/Animal.jpg') bottom center;
   background-size: cover;
 }
 
@@ -52,4 +52,19 @@ kbd {
   text-transform: uppercase;
   letter-spacing: .1rem;
   color: #ffc600;
+}
+
+@media all and (max-width: 600px) {
+  .keys {
+    display: flex;
+    flex: 0 0;
+  }
+  .key {
+    height: 100px;
+    width: 100px;
+  }
+
+  kbd {
+    display: none;
+  }
 }
