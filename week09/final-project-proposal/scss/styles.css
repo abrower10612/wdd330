@@ -4,6 +4,11 @@ body {
   padding: 0;
   background: #e7e8e9;
 }
+@media (min-width: 600px) {
+  body {
+    margin: 10px;
+  }
+}
 
 header {
   background-color: #e7e8e9;
@@ -28,6 +33,11 @@ header span {
   margin-left: 50px;
   position: fixed;
   color: #3464b4;
+}
+@media all and (min-width: 600px) {
+  header span {
+    font-size: 50px;
+  }
 }
 
 .sidenav {
@@ -67,6 +77,17 @@ header span {
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+}
+@media (min-width: 600px) {
+  .sidenav .closebtn {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 600px) {
+  #menuLinks {
+    margin-top: 30px;
+  }
 }
 
 @media screen and (max-height: 450px) {

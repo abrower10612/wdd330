@@ -6,6 +6,9 @@ header span {
   margin-left: 50px;
   position: fixed;
   color: $blue;
+  @media all and (min-width: 600px) {
+    font-size: 50px;
+  }
 }
 
 .sidenav {
@@ -43,6 +46,15 @@ header span {
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+  @media (min-width: 600px) {
+    font-size: 50px;
+  }
+}
+
+#menuLinks {
+  @media (min-width: 600px) {
+    margin-top: 30px;
+  }
 }
 
 @media screen and (max-height: 450px) {
