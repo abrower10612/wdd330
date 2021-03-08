@@ -8,9 +8,6 @@ body {
   margin: 0;
   padding: 0;
   background: $gray;
-  @media (min-width: 600px) {
-    margin: 10px;
-  }
 }
 
 // HEADER
@@ -24,7 +21,6 @@ header {
 section {
   background: $green;
   padding: 20px;
-  // margin: 20px;
 }
 
 #overview {
@@ -53,6 +49,12 @@ section {
 #schedule {
   background-color: $blue;
   color: #FFFFFF;
+  @media (min-width: 600px) {
+    h3, ul {
+      text-align: center;
+      list-style-type: none;
+    }
+  }
 }
 
 
@@ -63,11 +65,23 @@ section {
   flex-flow: column;
 }
 
+#mobile, #desktop {
+  @media (min-width: 600px) {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
+
 #mobile div {
   border: solid 2px $blue;
   margin: 20px;
 }
 
+#mobile a {
+  @media (min-width: 600px) {
+    font-size: 1.75em;
+  }
+}
 
 #wireframes a {
   width: 100px;
@@ -81,6 +95,9 @@ section {
   padding: 3px 10px;
   text-align: center;
   font-size: 1.25em;
+  @media (min-width: 600px) {
+    margin: 10px auto;
+  }
 }
 
 #wireframeBack {
@@ -89,7 +106,18 @@ section {
   background-color: $blue;
   position: fixed;
   padding: 0px 3px;
-  border-radius: 50%;
+  border-radius: 50%
+}
+
+#desktop div {
+  text-align: center;
+  border: solid 2px $blue;
+  width:  90%;
+  margin: 30px auto;
+  @media (min-width: 600px) {
+    width: 50%;
+    min-width: 550px;
+  }
 }
 
 // FOOTER

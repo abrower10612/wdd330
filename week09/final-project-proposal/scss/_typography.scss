@@ -35,10 +35,42 @@ header h3 {
   margin: 0;
 }
 
+p {
+  @media (min-width: 1000px) {
+    width: 800px;
+    margin: 20px auto;
+  }
+}
+
+#modules ul {
+  @media (min-width: 600px) {
+    width: 150px;
+    margin: 20px auto;
+    font-size: 1.5em;
+  }
+}
+
+#schedule ul  {
+  @media (min-width: 600px) {
+    width: 400px;
+    margin: 20px auto;
+  }
+}
+
+section h1,
+section h2,
+section h3 {
+  @media (min-width: 1000px) {
+    display: block;
+    text-align: center;
+  }
+}
+
 section  {
   @media (min-width: 600px) {
     h2 {
       font-size: 2em;
+      text-align: center;
     }
 
     p {
@@ -49,7 +81,18 @@ section  {
 
 #styling h3 {
   font-size:  1.25em;
+  @media (min-width: 600px) {
+    font-size: 1.5em;
+    text-align: center;
+  }
 }
+
+#styling p {
+  @media (min-width: 600px) {
+    text-align: center;
+  }
+}
+
 
 // MODULE LIST
 
@@ -59,8 +102,12 @@ section  {
 
 // WIREFRAMES
 
-#mobile h1 {
+#mobile h1, #desktop h1 {
   padding-top: 5px;
+  @media (min-width: 600px) {
+    display: block;
+    width: 100%;
+  }
 }
 
 #mobile a {
@@ -69,11 +116,10 @@ section  {
   color: $blue;
 }
 
-#mobile #wireframeBack {
+#mobile #wireframeBack, #desktop #wireframeBack {
   font-size: 1.5em;
   text-decoration: none;
   color: #FFFFFF;
-  background-color: $blue;
   @media all and (min-width: 600px) {
     font-size: 50px;
   }

@@ -4,11 +4,6 @@ body {
   padding: 0;
   background: #e7e8e9;
 }
-@media (min-width: 600px) {
-  body {
-    margin: 10px;
-  }
-}
 
 header {
   background-color: #e7e8e9;
@@ -46,15 +41,34 @@ section {
   background-color: #3464b4;
   color: #FFFFFF;
 }
+@media (min-width: 600px) {
+  #schedule h3, #schedule ul {
+    text-align: center;
+    list-style-type: none;
+  }
+}
 
 #wireframes {
   display: flex;
   flex-flow: column;
 }
 
+@media (min-width: 600px) {
+  #mobile, #desktop {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
+
 #mobile div {
   border: solid 2px #3464b4;
   margin: 20px;
+}
+
+@media (min-width: 600px) {
+  #mobile a {
+    font-size: 1.75em;
+  }
 }
 
 #wireframes a {
@@ -70,6 +84,11 @@ section {
   text-align: center;
   font-size: 1.25em;
 }
+@media (min-width: 600px) {
+  #wireframes a {
+    margin: 10px auto;
+  }
+}
 
 #wireframeBack {
   top: 5px;
@@ -78,6 +97,19 @@ section {
   position: fixed;
   padding: 0px 3px;
   border-radius: 50%;
+}
+
+#desktop div {
+  text-align: center;
+  border: solid 2px #3464b4;
+  width: 90%;
+  margin: 30px auto;
+}
+@media (min-width: 600px) {
+  #desktop div {
+    width: 50%;
+    min-width: 550px;
+  }
 }
 
 footer {
@@ -134,7 +166,7 @@ header span {
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: #64a454;
 }
 
 .sidenav .closebtn {
@@ -173,7 +205,8 @@ header img {
 }
 @media all and (min-width: 600px) {
   header img {
-    width: 50%;
+    width: 25%;
+    min-width: 450px;
     margin: 20px auto;
   }
 }
@@ -182,9 +215,11 @@ header img {
   width: 100%;
   border: solid 1px black;
 }
-@media all and (min-width: 600px) {
+@media (min-width: 600px) {
   #styling img {
     width: 50%;
+    display: block;
+    margin: 0 auto;
   }
 }
 
@@ -192,6 +227,17 @@ header img {
   display: block;
   margin: 20px auto 40px auto;
   width: 90%;
+}
+@media (min-width: 600px) {
+  #mobile img {
+    min-width: 400px;
+  }
+}
+
+#desktop img {
+  display: block;
+  width: 90%;
+  margin: 20px auto;
 }
 
 * {
@@ -233,9 +279,41 @@ header h3 {
   margin: 0;
 }
 
+@media (min-width: 1000px) {
+  p {
+    width: 800px;
+    margin: 20px auto;
+  }
+}
+
+@media (min-width: 600px) {
+  #modules ul {
+    width: 150px;
+    margin: 20px auto;
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 600px) {
+  #schedule ul {
+    width: 400px;
+    margin: 20px auto;
+  }
+}
+
+@media (min-width: 1000px) {
+  section h1,
+section h2,
+section h3 {
+    display: block;
+    text-align: center;
+  }
+}
+
 @media (min-width: 600px) {
   section h2 {
     font-size: 2em;
+    text-align: center;
   }
   section p {
     font-size: 1.5em;
@@ -245,13 +323,31 @@ header h3 {
 #styling h3 {
   font-size: 1.25em;
 }
+@media (min-width: 600px) {
+  #styling h3 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+}
+
+@media (min-width: 600px) {
+  #styling p {
+    text-align: center;
+  }
+}
 
 #modules {
   color: white;
 }
 
-#mobile h1 {
+#mobile h1, #desktop h1 {
   padding-top: 5px;
+}
+@media (min-width: 600px) {
+  #mobile h1, #desktop h1 {
+    display: block;
+    width: 100%;
+  }
 }
 
 #mobile a {
@@ -260,14 +356,13 @@ header h3 {
   color: #3464b4;
 }
 
-#mobile #wireframeBack {
+#mobile #wireframeBack, #desktop #wireframeBack {
   font-size: 1.5em;
   text-decoration: none;
   color: #FFFFFF;
-  background-color: #3464b4;
 }
 @media all and (min-width: 600px) {
-  #mobile #wireframeBack {
+  #mobile #wireframeBack, #desktop #wireframeBack {
     font-size: 50px;
   }
 }
