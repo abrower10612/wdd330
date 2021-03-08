@@ -1,47 +1,119 @@
 var keyCount = {
-  count : 1
+  A : 0,
+  S : 0,
+  D : 0,
+  F : 0,
+  G : 0,
+  H : 0,
+  J : 0,
+  K : 0,
+  L : 0
 }
 
 function playSound(e) {
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-    key.style.transform = "translateY(-" + 20 * keyCount.count + "%)";
-    if (audio) {
-      keyCount.count++;
-      switch (keyCount.count) {
-        case 2:
-          key.style.color = "#CAF0F8";
-          break;
-        case 3:
-          key.style.color = "#ADE8F4";
-          break;
-        case 4:
-          key.style.color = "#90E0EF";
-          break;
-        case 5:
-          key.style.color = "#48CAE4";
-          break;
-        case 6:
-          key.style.color = "#00B4D8";
-          break;
-        case 7:
-          key.style.color = "#0096C7";
-          break;
-        case 8:
-          key.style.color = "#0077B6";
-          break;
-        case 9: 
-          key.style.color = "#023E8A";
-          break;
-        case 10:
-          key.style.color = "#03045E";
-          break;
-        default:
-          key.style.color = "#FFFFFF";
-          break;
-      }
-      if (keyCount.count == 10) {
-        keyCount.count = 0;
+    if (key == null) return;
+
+    var color = Math.floor(Math.random() * Math.floor(6));
+
+    switch(color) {
+      case 0:
+        key.style.color = "pink";
+      case 1:
+        key.style.color = "red";
+        break;
+      case 2:
+        key.style.color = "blue";
+        break;
+      case 3:
+        key.style.color = "orange";
+        break;
+      case 4:
+        key.style.color = "purple";
+        break;
+      case 5:
+        key.style.color = "green";
+    }
+
+    if(key.id === "65") {
+      keyCount.A++;
+      key.style.transform = "translateY(-" + 20 * keyCount.A + "%)";
+      if (keyCount.A == 10) {
+        key.style.transform = "translateY(0%)";
+        keyCount.A = 0;
+      };
+    }
+
+    else if (key.id === "83") {
+      keyCount.S++;
+      key.style.transform = "translateY(-" + 20 * keyCount.S + "%)";
+      if (keyCount.S == 10) {
+        key.style.transform = "translateY(0%)";
+        keyCount.S = 0;
+      };
+    }
+
+    else if (key.id === "68") {
+      keyCount.D++;
+      key.style.transform = "translateY(-" + 20 * keyCount.D + "%)";
+      if (keyCount.D == 10) {
+        key.style.transform = "translateY(0%)";
+        keyCount.D = 0;
+      };
+    }
+
+    else if (key.id === "70") {
+      keyCount.F++;
+      key.style.transform = "translateY(-" + 20 * keyCount.F + "%)";
+      if (keyCount.F == 10) {
+        key.style.transform = "translateY(0%)";
+        keyCount.F = 0;
+      };
+    }
+
+    else if (key.id === "71") {
+      keyCount.G++;
+      key.style.transform = "translateY(-" + 20 * keyCount.G + "%)";
+      if (keyCount.G == 10) {
+        key.style.transform = "translateY(0%)";
+        keyCount.G = 0;
+      };
+    }
+
+    else if (key.id === "72") {
+      keyCount.H++;
+      key.style.transform = "translateY(-" + 20 * keyCount.H + "%)";
+      if (keyCount.H == 10) {
+        key.style.transform = "translateY(0%)";
+        keyCount.H = 0;
+      };
+    }
+
+    else if (key.id === "74") {
+      keyCount.J++;
+      key.style.transform = "translateY(-" + 20 * keyCount.J + "%)";
+      if (keyCount.J == 10) {
+        key.style.transform = "translateY(0%)";
+        keyCount.J = 0;
+      };
+    }
+
+    else if (key.id === "75") {
+      keyCount.K++;
+      key.style.transform = "translateY(-" + 20 * keyCount.K + "%)";
+      if (keyCount.K == 10) {
+        key.style.transform = "translateY(0%)";
+        keyCount.K = 0;
+      };
+    }
+
+    else if (key.id === "76") {
+      keyCount.L++;
+      key.style.transform = "translateY(-" + 20 * keyCount.L + "%)";
+      if (keyCount.L == 10) {
+        key.style.transform = "translateY(0%)";
+        keyCount.L = 0;
       };
     }
 
