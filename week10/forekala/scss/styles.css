@@ -100,7 +100,7 @@ header img {
   width: 90%;
   display: block;
   margin: 30px auto;
-  border: solid 2px pink;
+  border: solid 2px red;
 }
 
 body:before {
@@ -110,7 +110,7 @@ body:before {
   left: 0;
   top: 0;
   width: 100vh;
-  height: 100vh;
+  height: 120vh;
   z-index: -10;
   background: url(../images/splash-mobile.jpg) no-repeat center center;
   -webkit-background-size: cover;
