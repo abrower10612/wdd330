@@ -7,6 +7,11 @@ $blue-border: solid 2px #3464b4;
 $center-margin: 0 auto;
 $test-border: solid 2px red;
 
+h1 {
+  display: block;
+  text-align: center;
+}
+
 footer {
   color: white;
   text-align: center;
@@ -31,7 +36,8 @@ footer {
   border-radius: 10px;
 }
 
-#splash footer {
+#splash footer,
+#bucket footer {
   position: fixed;
   left: 0;
   bottom: 10px;
@@ -52,17 +58,13 @@ footer {
   background-color: rgb(161, 202, 247);
 }
 
-#dashboard h1 {
-  display: block;
-  text-align: center;
-}
-
 #dashboard h2 {
   display: block;
   text-align: center;
 }
 
-.bucket {
+.bucket,
+.bucketDetails {
   background-color: $gray;
   width: 90%;
   height: 200px;
@@ -72,23 +74,73 @@ footer {
   box-shadow: 5px 5px 5px black;
 }
 
-.bucket a {
-  text-decoration: none;
-  color: black;
-  cursor: pointer;
-}
-
-.bucket h2 {
+.bucket h2,
+.bucketDetails h2 {
   border-bottom: $blue-border;
   margin-top: 0;
   padding: 5px;
   background-color: $blue;
 }
 
+// BUCKET VIEW
+
+.bucketDetails {
+  height: fit-content;
+}
+
 #bucketDetails {
   display: block;
   margin: $center-margin;
   width: 50%;
+}
+
+.bucket ul {
+  margin: 0;
+  padding: 0;
+}
+
+#bucket ul {
+  margin: 0;
+  padding: 0;
+}
+
+#bucket li {
+  margin: 0;
+  padding: 10px 0 ;
+  text-align: center;
+  list-style: none;
+  border-bottom: solid 1px $blue;
+}
+
+.transactions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.transactionHeader {
+  font-weight: bold;
+}
+
+#transactionTotal {
+  grid-column: 1;
+  border-bottom: none !important;
+  font-weight: bold;
+}
+
+#totalAmount {
+  grid-column: 3;
+}
+
+#numTransactions {
+  grid-column: 1;
+}
+
+.transactionSummary {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 10px 0;
+  background-color: $blue;
+  color: white;
 }
 
 // MEDIA QUERIES

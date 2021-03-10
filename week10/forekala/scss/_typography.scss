@@ -1,5 +1,9 @@
 // ALL VIEWS
 
+h1 {
+  color: $blue;
+}
+
 // SPLASH VIEW
 
 #splash a {
@@ -17,9 +21,28 @@
   color: #FFFFFF;
 }
 
+.bucket a,
+.bucketDetails a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
 .bucket p {
   font-size: 1.3em;
   text-align: center;
+}
+
+// BUCKET VIEW
+
+.bucketDetails {
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.bucketDetails h2 {
+  margin-bottom: 0;
+  color: #FFFFFF;
 }
 
 
