@@ -2,7 +2,7 @@ header img {
   width: 90%;
   display: block;
   margin: 30px auto;
-  border: solid 2px green;
+  border: solid 2px purple;
 }
 
 // #splash {
@@ -28,6 +28,7 @@ body:before {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-attachment: scroll !important;
 }
 
 // #splash:before, 
