@@ -1,0 +1,50 @@
+#splash {
+  background-image: url(/week10/forekala/images/splash-mobile.jpg);
+  background-size: fill;
+}
+
+#splash header {
+  margin: 0 0 100px 0;
+}
+
+#getStarted {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+}
+
+#getStarted a {
+  padding: 10px 25px;
+  border-radius: 10px;
+}
+
+#splash footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 25px;
+  color: white;
+  text-align: center;
+}
+
+#splash footer a {
+  margin: 30px;
+}
+
+#splash a {
+  color: white;
+  background-color: #3464b4;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+header img {
+  width: 90%;
+  display: block;
+  margin: 30px auto;
+}
+
+/*# sourceMappingURL=styles.css.map */
