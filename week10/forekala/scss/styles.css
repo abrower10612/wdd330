@@ -109,15 +109,14 @@ body:before {
   position: fixed;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 110%;
+  width: 100vh;
+  height: 100vh;
   z-index: -10;
   background: url(../images/splash-mobile.jpg) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-attachment: scroll !important;
 }
 
 /*# sourceMappingURL=styles.css.map */
