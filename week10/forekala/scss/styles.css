@@ -2,6 +2,11 @@
   margin: 0 0 100px 0;
 }
 
+#dashboard h1 {
+  display: block;
+  text-align: center;
+}
+
 #getStarted {
   width: 100%;
   text-align: center;
@@ -15,7 +20,7 @@
   border-radius: 10px;
 }
 
-#splash footer {
+footer {
   position: fixed;
   left: 0;
   bottom: 10px;
