@@ -46,7 +46,11 @@ footer {
   margin: 30px;
 }
 
-// DASHBOARD
+// DASHBOARD VIEW
+
+#dashboard {
+  background-color: rgb(161, 202, 247);
+}
 
 #dashboard h1 {
   display: block;
@@ -63,8 +67,8 @@ footer {
   width: 90%;
   height: 200px;
   border: $blue-border;
+  border-radius: 5px;
   margin: 30px auto;
-  opacity: 80%;
   box-shadow: 5px 5px 5px black;
 }
 
