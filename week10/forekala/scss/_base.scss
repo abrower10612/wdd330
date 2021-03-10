@@ -1,16 +1,21 @@
+// ALL VIEWS
+
 $blue: #3464b4;
 $green: #64a454;
 $gray: #e7e8e9;
+$blue-border: solid 2px #3464b4;
 $center-margin: 0 auto;
 $test-border: solid 2px red;
 
-#splash header {
-  margin: 0 0 100px 0;
+footer {
+  color: white;
+  text-align: center;
 }
 
-#dashboard h1 {
-  display: block;
-  text-align: center;
+// SPLASH VIEW
+
+#splash header {
+  margin: 0 0 100px 0;
 }
 
 #getStarted {
@@ -26,7 +31,7 @@ $test-border: solid 2px red;
   border-radius: 10px;
 }
 
-footer {
+#splash footer {
   position: fixed;
   left: 0;
   bottom: 10px;
@@ -34,11 +39,56 @@ footer {
   height: 25px;
   color: white;
   text-align: center;
+  margin-top: 10px;
 }
 
 #splash footer a {
   margin: 30px;
 }
+
+// DASHBOARD
+
+#dashboard h1 {
+  display: block;
+  text-align: center;
+}
+
+#dashboard h2 {
+  display: block;
+  text-align: center;
+}
+
+.bucket {
+  background-color: $gray;
+  width: 90%;
+  height: 200px;
+  border: $blue-border;
+  margin: 30px auto;
+  opacity: 80%;
+  box-shadow: 5px 5px 5px black;
+}
+
+.bucket a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.bucket h2 {
+  border-bottom: $blue-border;
+  margin-top: 0;
+  padding: 5px;
+  background-color: $blue;
+}
+
+#bucketDetails {
+  display: block;
+  margin: $center-margin;
+  width: 50%;
+}
+
+// MEDIA QUERIES
+
 
 @media (min-width: 600px) {
 

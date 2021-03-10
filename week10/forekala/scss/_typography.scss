@@ -1,8 +1,25 @@
+// ALL VIEWS
+
+// SPLASH VIEW
+
 #splash a {
   color: white;
   background-color: $blue;
   text-decoration: none;
   font-size: 1.5em;
+}
+
+// DASHBOARD VIEW
+
+.bucket h2 {
+  text-align: center;
+  font-size: 1.75em;
+  color: #FFFFFF;
+}
+
+.bucket p {
+  font-size: 1.3em;
+  text-align: center;
 }
 
 
