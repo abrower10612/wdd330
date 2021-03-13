@@ -8,41 +8,113 @@
 </head>
 <body>
   <div class="mainContainer">
-    <h1>WDD 330 Week# Notes</h1>
+    <h1>WDD 330 Week10 Notes</h1>
     <div class="line"></div>
-    <h2>Chapter #: Title</h2>
+
+    <h2>MDN: Validating Forms</h2>
     <div class="container">
+
       <section>
-        <h3>Section Title</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+        <h3>Client-side Form Validation</h3>
+        <p>Before submitting data to the server, it is important to ensure all required form controls are filled out, in the correct format. This is called client-side form validation, and helps ensure data submitted matches the requirements set forth in the various form controls. This article leads you through basic concepts and examples of client-side form validation.</p>
       </section>
+
       <section>
-        <h3>Section Title</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+        <h3>What is form validation?</h3>
+        <p>When you enter data, the browser and/or the web server will check to see that the data is in the correct format and within the constraints set by the application. Validation done in the browser is called client-side validation, while validation done on the server is called server-side validation. In this chapter we are focusing on client-side validation.</p>
       </section>
+
+      <section>
+        <h3>Different types of client-side validation</h3>
+        <p>Built-in form validation uses HTML5 form validation features, which we've discussed in many places throughout this module. This validation generally doesn't require much JavaScript. Built-in form validation has better performance than JavaScript, but it is not as customizable as JavaScript validation.JavaScript validation is coded using JavaScript. This validation is completely customizable, but you need to create it all (or use a library).</p>
+      </section>
+
+      <section>
+        <h3>Using built-in form validation</h3>
+        <p>Required specifies whether a form field needs to be filled in before the form can be submitted.
+          minlength and maxlength specifies the minimum and maximum length of textual data (strings).
+          min and max specifies the minimum and maximum values of numerical input types.
+          type specifies whether the data needs to be a number, an email address, or some other specific preset type. 
+          pattern: Specifies a regular expression that defines a pattern the entered data needs to follow.</p>
+      </section>
+
+      <section>
+        <h3>The required attribute</h3>
+        <p>The simplest HTML5 validation feature is the required attribute. To make an input mandatory, add this attribute to the element. When this attribute is set, the element matches the :required UI pseudo-class and the form won't submit, displaying an error message on submission when the input is empty. While empty, the input will also be considered invalid, matching the :invalid UI pseudo-class.</p>
+      </section>
+
+      <section>
+        <h3>Validating against a regular expression</h3>
+        <p>Another useful validation feature is the pattern attribute, which expects a Regular Expression as its value. A regular expression (regex) is a pattern that can be used to match character combinations in text strings, so regexps are ideal for form validation and serve a variety of other uses in JavaScript.</p>
+      </section>
+
+      <section>
+        <h3>Constraining the length of your entries</h3>
+        <p>You can constrain the character length of all text fields created by input or textarea by using the minlength and maxlength attributes. A field is invalid if it has a value and that value has fewer characters than the minlength value or more than the maxlength value. Browsers often don't let the user type a longer value than expected into text fields. A better user experience than just using maxlength is to also provide character count feedback in an accessible manner and let them edit their content down to size.</p>
+      </section>
+
+      <section>
+        <h3>Constraining the values of your entries</h3>
+        <p>For number fields, the min and max attributes can be used to provide a range of valid values. If the field contains a value outside this range, it will be invalid.</p>
+      </section>
+
+      <section>
+        <h3>Validating forms without a built-in API</h3>
+        <p>In some cases, such as legacy browser support or custom controls, you won't be able to or won't want to use the Constraint Validation API.You're still able to use JavaScript to validate your form, but you'll just have to write your own.</p>
+      </section>
+
     </div>
-    <h2>Chapter #: Title</h2>
+
+    <h2>MDN: Using Fetch</h2>
     <div class="container">
+
       <section>
-        <h3>Section Title</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+        <h3>Using Fetch</h3>
+        <p>The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously across the network.
+
+          This kind of functionality was previously achieved using XMLHttpRequest. Fetch provides a better alternative that can be easily used by other technologies such as Service Workers. Fetch also provides a single logical place to define other HTTP-related concepts such as CORS and extensions to HTTP.</p>
       </section>
+
       <section>
-        <h3>Section Title</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
+        <h3>Sending a request with credentials included</h3>
+        <p>To cause browsers to send a request with credentials included on both same-origin and cross-origin calls, add credentials: 'include' to the init object you pass to the fetch() method.</p>
       </section>
+
+      <section>
+        <h3>Processing a text file line by line</h3>
+        <p>The chunks that are read from a response are not broken neatly at line boundaries and are Uint8Arrays, not strings. If you want to fetch a text file and process it line by line, it is up to you to handle these complications. The following example shows one way to do this by creating a line iterator (for simplicity, it assumes the text is UTF-8, and doesn't handle fetch errors).</p>
+      </section>
+
+      <section>
+        <h3>Checking that the fetch was successful</h3>
+        <p>A fetch() promise will reject with a TypeError when a network error is encountered or CORS is misconfigured on the server-side, although this usually means permission issues or similar — a 404 does not constitute a network error, for example. An accurate check for a successful fetch() would include checking that the promise resolved, then checking that the Response.ok property has a value of true.</p>
+      </section>
+
+      <section>
+        <h3>Supplying your own request object</h3>
+        <p>Instead of passing a path to the resource you want to request into the fetch() call, you can create a request object using the Request() constructor, and pass that in as a fetch() method argument.</p>
+      </section>
+
+      <section>
+        <h3>Headers</h3>
+        <p>The Headers interface allows you to create your own headers object via the Headers() constructor. A headers object is a simple multi-map of names to values.</p>
+      </section>
+
+      <section>
+        <h3>Guard</h3>
+        <p>Since headers can be sent in requests and received in responses, and have various limitations about what information can and should be mutable, headers' objects have a guard property. This is not exposed to the Web, but it affects which mutation operations are allowed on the headers object.</p>
+      </section>
+
+      <section>
+        <h3>Response objects</h3>
+        <p>Response.status — An integer (default value 200) containing the response status code.
+          Response.statusText — A string (default value ""), which corresponds to the HTTP status code message. Note that HTTP/2 does not support status messages.
+          Response.ok — seen in use above, this is a shorthand for checking that status is in the range 200-299 inclusive. This returns a Boolean.
+          They can also be created programmatically via JavaScript, but this is only really useful in ServiceWorkers, when you are providing a custom response to a received request using a respondWith() method.</p>
+      </section>
+
     </div>
-    <h2>Chapter #: Title</h2>
-    <div class="container">
-      <section>
-        <h3>Section Title</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
-      </section>
-      <section>
-        <h3>Section Title</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, asperiores.</p>
-      </section>
-    </div>
+    
   </div>
 </body>
 </html>
