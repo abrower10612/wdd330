@@ -6,7 +6,7 @@ export function getJSON(url) {
       if (!response.ok) {
         throw Error(response.statusText);
       } else {
-        //console.log(response.json());
+        console.log(response.json());
         return response.json();
       }
     })
