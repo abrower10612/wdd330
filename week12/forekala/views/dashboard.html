@@ -36,14 +36,15 @@
       var deleteBtn = document.createElement("button");
       var categoryTitle = document.createElement("div");
       var categoryHeading = document.createElement("h2");
+      categoryTitle.classList.add("categoryTitle");
+      deleteBtn.classList.add("fa");
+      deleteBtn.classList.add("fa-trash-o");
+      node.classList.add("bucket");
       categoryHeading.appendChild(textnode);
       categoryTitle.appendChild(categoryHeading);
       categoryTitle.appendChild(deleteBtn);
-      deleteBtn.classList.add("fa");
-      deleteBtn.classList.add("fa-trash-o");
-      deleteBtn.onclick = function() {deleteCategory(node)};
       node.appendChild(categoryTitle);
-      node.classList.add("bucket");
+      deleteBtn.onclick = function() {deleteCategory(node)};
       document.getElementById("categories").appendChild(node);
     }
   }

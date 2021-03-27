@@ -75,6 +75,12 @@ footer {
   padding: 0;
 }
 
+.categoryTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .bucket {
   display: block;
   margin: 0 auto;
