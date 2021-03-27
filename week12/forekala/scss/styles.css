@@ -72,24 +72,22 @@ footer {
   margin: 0 auto;
 }
 
+.bucket div {
+  margin-bottom: 0;
+}
+
 .bucket button {
-  float: right;
   margin-top: 2px;
   background: none;
   border: none;
   color: #FFFFFF;
   font-size: 1.5rem;
-  z-index: 1000;
-}
-
-.bucket div {
-  margin-bottom: 0;
-  padding-left: 30px;
 }
 
 .bucket h2 {
   text-align: center;
   margin: 0;
+  margin-left: 10px;
 }
 
 .bucket,
