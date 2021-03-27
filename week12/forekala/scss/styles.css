@@ -113,9 +113,10 @@ footer {
   display: block;
   text-align: center;
   margin: 10px auto;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   background-color: #3464b4;
   color: #FFFFFF;
+  padding: 10px;
 }
 
 #dashboard footer {
