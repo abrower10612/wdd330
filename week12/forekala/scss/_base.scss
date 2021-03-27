@@ -7,6 +7,11 @@ $blue-border: solid 2px #3464b4;
 $center-margin: 0 auto;
 $test-border: solid 2px red;
 
+main {
+  padding: 0;
+  margin: 0;
+}
+
 h1 {
   display: block;
   text-align: center;
@@ -61,6 +66,27 @@ footer {
 #dashboard h2 {
   display: block;
   text-align: center;
+}
+
+.categories > *{
+  display: block;
+  margin: 0;
+  padding: 0;
+  max-width: 200px;
+}
+
+.bucket {
+  display: block;
+  margin: 0 auto;
+}
+
+.bucket button {
+  margin-top: 0;
+  float: right;
+}
+
+.bucket h2 {
+  margin-bottom: 0;
 }
 
 .bucket,

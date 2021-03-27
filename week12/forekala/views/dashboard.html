@@ -13,7 +13,7 @@
   </header>
   <main>
     <h1>March 2021</h1>
-    <ul id="categories"></ul>
+    <div id="categories"></div>
     <button onclick="addCategory()">Add Category</button>
   </main>
   <footer>
@@ -27,14 +27,16 @@
       alert("Sorry, the name of the category must be at least one character!")
     }
     else {
-      var node = document.createElement("ul");
+      var node = document.createElement("div");
       node.classList.add("bucket");
       var textnode = document.createTextNode(categoryName);
+      var categoryTitle = document.createElement("h2");
+      categoryTitle.appendChild(textnode);
       var deleteBtn = document.createElement("button");
-      var deleteBtnText = document.createTextNode("X");
+      var deleteBtnText = document.createTextNode("Delete");
       deleteBtn.onclick = function() {deleteCategory(node)};
       deleteBtn.appendChild(deleteBtnText);
-      node.appendChild(textnode);
+      node.appendChild(categoryTitle);
       node.appendChild(deleteBtn);
       document.getElementById("categories").appendChild(node);
     }
