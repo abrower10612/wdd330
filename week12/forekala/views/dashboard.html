@@ -97,6 +97,7 @@
   function deleteFromPersistent(categoryName) {
     categories.pop(categoryName);
     updatePersistentData(categories);
+    location.reload();
   }
 
   function monthAndYear() {
