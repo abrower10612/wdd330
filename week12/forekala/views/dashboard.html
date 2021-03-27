@@ -8,22 +8,19 @@
   <link rel="stylesheet" href="../scss/styles.css">
   <title>Forekala</title>
 </head>
-<body id="dashboard">
+<body id="dashboard" onload="monthAndYear()">
   <header>
     <img src="../images/forekala.png" alt="Image of the Forekala logo with a blue and green striped ball and the word Forekala to the right of the ball">
   </header>
   <main>
-    <h1>March 2021</h1>
+    <div id="monthAndYear"></div>
     <div id="categories"></div>
     <button onclick="addCategory()" id="addCategoryBtn">Add Category</button>
   </main>
-  <!-- <footer>
-    &copy; 2021 | Andrew Brower
-  </footer> -->
 </body>
 <script>
   function addCategory() {
-    var categoryName = prompt("What is this category going to be called?")
+    var categoryName = prompt("What is this category called?")
     if (categoryName == "") {
       alert("Sorry, the name of the category must be at least one character!")
     }
@@ -54,6 +51,55 @@
     if (confirmDelete) {
       document.getElementById("categories").removeChild(node)      
     }
+  }
+
+  function monthAndYear() {
+    var today = new Date();
+    var mm = String(today.getMonth()).padStart(2, '0');
+    switch(mm) {
+      case "00":
+        mm = "January";
+        break;
+      case "01":
+        mm = "February";
+        break;
+      case "02":
+        mm = "March";
+        break;
+      case "03":
+        mm = "April";
+        break;
+      case "04":
+        mm = "May";
+        break;
+      case "05":
+        mm = "June";
+        break;
+      case "06":
+        mm = "July";
+        break;
+      case "07":
+        mm = "August";
+        break;
+      case "08":
+        mm = "September";
+        break;
+      case "09":
+        mm = "October";
+        break;
+      case "10":
+        mm = "November";
+        break;
+      default:
+        mm = "December";
+        break;
+    }
+    var yyyy = today.getFullYear();
+    today = mm + " " + yyyy;
+    var node = document.createElement("h1");
+    var textnode = document.createTextNode(today);
+    node.appendChild(textnode);
+    document.getElementById("monthAndYear").appendChild(node);
   }
 </script>
 </html>

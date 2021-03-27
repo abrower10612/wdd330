@@ -1,11 +1,17 @@
 // ALL VIEWS
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
 $blue: #3464b4;
 $green: #64a454;
 $gray: #e7e8e9;
 $blue-border: solid 2px #3464b4;
 $center-margin: 0 auto;
 $test-border: solid 2px red;
+
+* {
+  font-family: 'Noto Sans JP', sans-serif;
+}
 
 main {
   padding: 0;
