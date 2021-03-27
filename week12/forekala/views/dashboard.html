@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../scss/styles.css">
+  <title>Forekala</title>
+</head>
+<body id="dashboard">
+  <header>
+    <img src="../images/forekala.png" alt="Image of the Forekala logo with a blue and green striped ball and the word Forekala to the right of the ball">
+  </header>
+  <main>
+    <h1>March 2021</h1>
+    <ul id="categories"></ul>
+    <button onclick="addCategory()">Add Category</button>
+  </main>
+  <footer>
+    &copy; 2021 | Andrew Brower
+  </footer>
+</body>
+<script>
+  function addCategory() {
+    var categoryName = prompt("What is this category going to be called?")
+    if (categoryName == "") {
+      alert("Sorry, the name of the category must be at least one character!")
+    }
+    else {
+      var node = document.createElement("ul");
+      node.classList.add("bucket");
+      var textnode = document.createTextNode(categoryName);
+      var deleteBtn = document.createElement("button");
+      var deleteBtnText = document.createTextNode("X");
+      deleteBtn.onclick = function() {deleteCategory(node)};
+      deleteBtn.appendChild(deleteBtnText);
+      node.appendChild(textnode);
+      node.appendChild(deleteBtn);
+      document.getElementById("categories").appendChild(node);
+    }
+  }
+
+  function deleteCategory(node) {
+    var confirmDelete = window.confirm("Are you sure you want to delete this category?");
+    if (confirmDelete) {
+      document.getElementById("categories").removeChild(node)      
+    }
+  }
+</script>
+</html>
