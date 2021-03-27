@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../scss/styles.css">
   <title>Forekala</title>
 </head>
@@ -26,18 +27,23 @@
     if (categoryName == "") {
       alert("Sorry, the name of the category must be at least one character!")
     }
+    else if (categoryName == null) {
+      return;
+    }
     else {
       var node = document.createElement("div");
-      node.classList.add("bucket");
       var textnode = document.createTextNode(categoryName);
-      var categoryTitle = document.createElement("h2");
-      categoryTitle.appendChild(textnode);
       var deleteBtn = document.createElement("button");
-      var deleteBtnText = document.createTextNode("Delete");
+      var categoryTitle = document.createElement("div");
+      var categoryHeading = document.createElement("h2");
+      categoryHeading.appendChild(textnode);
+      categoryTitle.appendChild(categoryHeading);
+      categoryTitle.appendChild(deleteBtn);
+      deleteBtn.classList.add("fa");
+      deleteBtn.classList.add("fa-trash-o");
       deleteBtn.onclick = function() {deleteCategory(node)};
-      deleteBtn.appendChild(deleteBtnText);
       node.appendChild(categoryTitle);
-      node.appendChild(deleteBtn);
+      node.classList.add("bucket");
       document.getElementById("categories").appendChild(node);
     }
   }

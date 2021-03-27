@@ -51,15 +51,14 @@ footer {
 }
 
 #dashboard h2 {
-  display: block;
+  display: inline;
   text-align: center;
 }
 
-.categories > * {
+.categories {
   display: block;
   margin: 0;
   padding: 0;
-  max-width: 200px;
 }
 
 .bucket {
@@ -68,12 +67,23 @@ footer {
 }
 
 .bucket button {
-  margin-top: 0;
   float: right;
+  margin-top: 2px;
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  z-index: 1000;
+}
+
+.bucket div {
+  margin-bottom: 0;
+  padding-left: 30px;
 }
 
 .bucket h2 {
-  margin-bottom: 0;
+  text-align: center;
+  margin: 0;
 }
 
 .bucket,
@@ -87,7 +97,7 @@ footer {
   box-shadow: 5px 5px 5px black;
 }
 
-.bucket h2,
+.bucket div,
 .bucketDetails h2 {
   border-bottom: solid 2px #3464b4;
   margin-top: 0;
