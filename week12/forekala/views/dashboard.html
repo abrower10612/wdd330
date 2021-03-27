@@ -8,17 +8,53 @@
   <link rel="stylesheet" href="../scss/styles.css">
   <title>Forekala</title>
 </head>
-<body id="dashboard" onload="monthAndYear()">
+<body id="dashboard" onload="monthAndYear(), renderCategories()">
   <header>
     <img src="../images/forekala.png" alt="Image of the Forekala logo with a blue and green striped ball and the word Forekala to the right of the ball">
   </header>
   <main>
     <div id="monthAndYear"></div>
     <div id="categories"></div>
-    <button onclick="addCategory()" id="addCategoryBtn">Add Category</button>
+    <button onclick="addCategory(), renderCategories()" id="addCategoryBtn">Add Category</button>
   </main>
 </body>
 <script>
+
+  const updatePersistentData = (categories) => {
+    localStorage.setItem("myCategories", JSON.stringify(categories));
+  }
+
+  var categories = [];
+  renderCount = 0;
+
+  function renderCategories() {
+    if (renderCount == 0) {
+      var retrievedData = localStorage.getItem("myCategories");
+      var retrievedCategories = JSON.parse(retrievedData);
+        for (let i = 0; i < retrievedCategories.length; i++) {
+        var node = document.createElement("div");
+        var textnode = document.createTextNode(retrievedCategories[i]);
+        var deleteBtn = document.createElement("button");
+        var categoryTitle = document.createElement("div");
+        var categoryHeading = document.createElement("h2");
+        categoryTitle.classList.add("categoryTitle");
+        deleteBtn.classList.add("fa");
+        deleteBtn.classList.add("fa-trash-o");
+        node.classList.add("bucket");
+        node.id = retrievedCategories[i];
+        categoryHeading.appendChild(textnode);
+        categoryTitle.appendChild(categoryHeading);
+        categoryTitle.appendChild(deleteBtn);
+        node.appendChild(categoryTitle);
+        deleteBtn.onclick = function() {deleteCategory(node)};
+        document.getElementById("categories").appendChild(node);
+        categories.push(retrievedCategories[i]);
+        updatePersistentData(categories);
+      }
+    }
+    renderCount = 1;
+  }
+
   function addCategory() {
     var categoryName = prompt("What is this category called?")
     if (categoryName == "") {
@@ -37,12 +73,15 @@
       deleteBtn.classList.add("fa");
       deleteBtn.classList.add("fa-trash-o");
       node.classList.add("bucket");
+      node.id = categoryName;
       categoryHeading.appendChild(textnode);
       categoryTitle.appendChild(categoryHeading);
       categoryTitle.appendChild(deleteBtn);
       node.appendChild(categoryTitle);
       deleteBtn.onclick = function() {deleteCategory(node)};
       document.getElementById("categories").appendChild(node);
+      categories.push(categoryName);
+      updatePersistentData(categories);
     }
   }
 
@@ -51,6 +90,13 @@
     if (confirmDelete) {
       document.getElementById("categories").removeChild(node)      
     }
+    var categoryName = document.getElementById(node.id);
+    deleteFromPersistent(categoryName);
+  }
+
+  function deleteFromPersistent(categoryName) {
+    categories.pop(categoryName);
+    updatePersistentData(categories);
   }
 
   function monthAndYear() {
