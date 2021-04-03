@@ -27,6 +27,7 @@ function renderCategories() {
       deleteBtn.onclick = function() { 
         deleteCategory(document.getElementById(retrievedCategories[i])) 
       };
+      node.onclick= function URL() {location.href='bucket.html'; };
       // node.onclick = function URL() {
       //   displayBucket(retrievedCategories[i]);
       // };
@@ -74,7 +75,7 @@ function addCategory() {
     categoryTitle.appendChild(deleteBtn);
     node.appendChild(categoryTitle);
     deleteBtn.onclick = function() { deleteCategory(document.getElementById(node.id)) };
-    // node.onclick= function URL() {location.href='bucket.html'; };
+    node.onclick= function URL() {location.href='bucket.html'; };
     // node.onclick = function() { displayBucket(document.getElementById(node.id)) };
     document.getElementById("categories").appendChild(node);
     categories.push(categoryName);
