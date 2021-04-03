@@ -27,10 +27,7 @@ function renderCategories() {
       deleteBtn.onclick = function() { 
         deleteCategory(document.getElementById(retrievedCategories[i])) 
       };
-      node.onclick= function URL() {location.href='bucket.html'; };
-      // node.onclick = function URL() {
-      //   displayBucket(retrievedCategories[i]);
-      // };
+      // node.onclick= function URL() {location.href='bucket.html'; };
       document.getElementById("categories").appendChild(node);
       categories.push(retrievedCategories[i]);
       updatePersistentData(categories);
@@ -38,22 +35,6 @@ function renderCategories() {
   }
   renderCount = 1;
 }
-
-// function common() {
-//   var node = document.createElement("div");
-//     var textnode = document.createTextNode(categoryName);
-//     var deleteBtn = document.createElement("button");
-//     var categoryTitle = document.createElement("div");
-//     var categoryHeading = document.createElement("h2");
-//     categoryTitle.classList.add("categoryTitle");
-//     deleteBtn.classList.add("fa");
-//     deleteBtn.classList.add("fa-trash-o");
-//     node.classList.add("bucket");
-//     categoryHeading.appendChild(textnode);
-//     categoryTitle.appendChild(categoryHeading);
-//     categoryTitle.appendChild(deleteBtn);
-//     node.appendChild(categoryTitle);
-// }
 
 function addCategory() {
   var categoryName = prompt("What are you going to name this one?")
@@ -75,7 +56,7 @@ function addCategory() {
     categoryTitle.appendChild(deleteBtn);
     node.appendChild(categoryTitle);
     deleteBtn.onclick = function() { deleteCategory(document.getElementById(node.id)) };
-    node.onclick= function URL() {location.href='bucket.html'; };
+    // node.onclick= function URL() {location.href='bucket.html'; };
     // node.onclick = function() { displayBucket(document.getElementById(node.id)) };
     document.getElementById("categories").appendChild(node);
     categories.push(categoryName);
