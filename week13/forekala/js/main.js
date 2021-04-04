@@ -5,6 +5,8 @@ const updatePersistentData = (categories) => {
 var categories = [];
 renderCount = 0;
 
+
+// render the categories on page load/reload
 function renderCategories() {
   if (renderCount == 0) {
     var retrievedData = localStorage.getItem("myCategories");
@@ -14,14 +16,15 @@ function renderCategories() {
       var textnode = document.createTextNode(retrievedCategories[i]);
 
       // Variables
-      var addTransaction = document.createElement("i");
+      var addTransaction = document.createElement("button");
       var clear = document.createElement("button");
       var clearText = document.createTextNode("clear");
       var deleteBtn = document.createElement("button");
       var categoryTitle = document.createElement("div");
       var categoryHeading = document.createElement("h2");
 
-      // class and id
+
+      // classes and ids
       categoryTitle.classList.add("categoryTitle");
       deleteBtn.classList.add("fa");
       deleteBtn.classList.add("fa-trash-o");
@@ -31,6 +34,11 @@ function renderCategories() {
       addTransaction.style.color = "white";
       addTransaction.style.fontSize = "1.5em";
       node.id = retrievedCategories[i];
+      addTransaction.classList.add("fa");
+      addTransaction.classList.add("fa-plus-circle");
+      addTransaction.style.color = "white";
+      addTransaction.style.fontSize = "1.5em";
+
 
       // appendChild
       categoryHeading.appendChild(textnode);
@@ -42,10 +50,12 @@ function renderCategories() {
       categoryTitle.appendChild(clear);
       document.getElementById("categories").appendChild(node); 
 
-      // finish
-      deleteBtn.onclick = function() { 
+      // Onclick
+      deleteBtn.onclick = () => { 
         deleteCategory(document.getElementById(retrievedCategories[i])) 
       };
+      clear.onclick = () => { clearCategory() }
+      // addTransaction.onclick = () => { add(node) }
       categories.push(retrievedCategories[i]);
       updatePersistentData(categories);
     }
@@ -53,6 +63,8 @@ function renderCategories() {
   renderCount = 1;
 }
 
+
+// adds a new category when the "Add Category" button is pushed
 function addCategory() {
   var categoryName = prompt("What are you going to name this one?")
   if (categoryName == "") alert("Oops, the category name can't be blank.")
@@ -64,15 +76,22 @@ function addCategory() {
     var textnode = document.createTextNode(categoryName);
     var addTransaction = document.createElement("button");
     var deleteBtn = document.createElement("button");
-    var addTransaction = document.createElement("i");
+    var addTransaction = document.createElement("button");
     var clear = document.createElement("button");
     var clearText = document.createTextNode("clear");
     var clear = document.createElement("button");
     var clearText = document.createTextNode("clear");
     var categoryTitle = document.createElement("div");
     var categoryHeading = document.createElement("h2");
+    var transactionBar = document.createElement("div");
+    var transactionName = document.createElement("input");
+    var transactionAmount = document.createElement("input")
+    var transactionDate = document.createElement("input")
+    var transactionSubmitText = document.createTextNode("Track Expense");
+    var transactionSubmit = document.createElement("a");
 
-    // class and id
+
+    // classes, styles, and ids
     categoryTitle.classList.add("categoryTitle");
     deleteBtn.classList.add("fa");
     deleteBtn.classList.add("fa-trash-o");
@@ -82,6 +101,13 @@ function addCategory() {
     addTransaction.classList.add("fa-plus-circle");
     addTransaction.style.color = "white";
     addTransaction.style.fontSize = "1.5em";
+    transactionBar.classList.add("hide");
+    transactionBar.style.height = "fit-content";
+    transactionBar.classList.add("transactionBar");
+    transactionName.placeholder = "Where?";
+    transactionAmount.placeholder = "How much?";
+    transactionDate.placeholder = "When?";
+    transactionSubmit.classList.add("transactionSubmit");
 
     // appendChild
     categoryHeading.appendChild(textnode);
@@ -91,26 +117,47 @@ function addCategory() {
     categoryTitle.appendChild(addTransaction);
     clear.appendChild(clearText);
     categoryTitle.appendChild(clear);
+    node.appendChild(transactionBar);
+    transactionBar.appendChild(transactionName);
+    transactionBar.appendChild(transactionDate);
+    transactionBar.appendChild(transactionAmount);
+    transactionSubmit.appendChild(transactionSubmitText);
+    transactionBar.appendChild(transactionSubmit);
+    transactionAmount.id = "test";
 
-    // Finish
-    deleteBtn.onclick = function() { deleteCategory(document.getElementById(node.id)) };
+    // Onclick and finish
+    deleteBtn.onclick = () => { deleteCategory(document.getElementById(node.id)) };
+    clear.onclick = () => { clearCategory() };
+    addTransaction.onclick = () => { add(transactionBar, transactionSubmit, transactionAmount) }
     document.getElementById("categories").appendChild(node);
     categories.push(categoryName);
     updatePersistentData(categories);
   }
 }
 
-function displayBucket(categoryName) {
-  location.href='bucket.html'; 
-  if (document.getElementById("bucketHeading")) alert("true");
-  else alert("false");
-  addTransaction();
+
+// adds a transaction to the selected category
+function add(transactionBar, transactionSubmit, transactionAmount) {
+  transactionBar.classList.toggle("hide");
+  transactionSubmit.onclick = () => {
+    addTransaction(document.getElementById("test").value);
+  }
 }
 
-function addTransaction() {
 
+function addTransaction(transactionAmount) {
+  alert(transactionAmount);
 }
 
+
+// clears the list of transactions within the selected category
+function clearCategory() {
+  alert("Transactions cleared");
+}
+
+
+
+// deletes a category when the delete icon is selected
 function deleteCategory(node) {
   var confirmDelete = window.confirm("Are you sure you want to delete this category?");
   if (confirmDelete) {
@@ -120,11 +167,14 @@ function deleteCategory(node) {
   }
 }
 
+
+// removes the category from local storage when it is deleted
 function deleteFromPersistent(categoryName) {
   categories.pop(categoryName);
   updatePersistentData(categories);
 }
 
+// Dynamically sets and displays the month and year 
 function monthAndYear() {
   var today = new Date();
   var mm = String(today.getMonth()).padStart(2, '0');

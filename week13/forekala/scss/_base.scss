@@ -1,0 +1,254 @@
+// ALL VIEWS
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+$blue: #3464b4;
+$green: #64a454;
+$gray: #e7e8e9;
+$blue-border: solid 2px #3464b4;
+$center-margin: 0 auto;
+$test-border: solid 2px red;
+
+* {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+button, i {
+  cursor: pointer;
+}
+
+main {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  display: block;
+  text-align: center;
+}
+
+footer {
+  color: white;
+  text-align: center;
+}
+
+// SPLASH VIEW
+
+#splash header {
+  margin: 0 0 100px 0;
+}
+
+#getStarted {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 70px;
+  left: 0;
+}
+
+#getStarted a {
+  padding: 10px 25px;
+  border-radius: 10px;
+}
+
+#splash footer,
+#bucket footer {
+  position: fixed;
+  left: 0;
+  bottom: 10px;
+  width: 100%;
+  height: 25px;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#splash footer a {
+  margin: 30px;
+}
+
+// DASHBOARD VIEW
+
+#dashboard {
+  background-color: rgb(161, 202, 247);
+}
+
+#dashboard h2 {
+  display: inline;
+  text-align: center;
+}
+
+.categories{
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.categoryTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bucket {
+  display: block;
+  margin: 0 auto;
+}
+
+.categoryTitle {
+  margin-bottom: 0;
+}
+
+.bucket button {
+  margin-top: 2px;
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 1.5rem;
+}
+
+.bucket h2 {
+  text-align: center;
+  margin: 0;
+  margin-left: 10px;
+}
+
+.bucket,
+.bucketDetails {
+  background-color: $gray;
+  width: 90%;
+  height: 200px;
+  border: $blue-border;
+  border-radius: 5px;
+  margin: 30px auto;
+  box-shadow: 5px 5px 5px black;
+}
+
+.categoryTitle,
+.bucketDetails h2 {
+  border-bottom: $blue-border;
+  margin-top: 0;
+  padding: 5px;
+  background-color: $blue;
+}
+
+.transactionBar {
+  display: block;
+  border: solid 2px black;
+  padding: 5px;
+  transition: display 2s;
+}
+
+.transactionBar input {
+  display: block;
+  margin: 3px;
+}
+
+.hide {
+  display: none;
+  // height: 100px;
+}
+
+.transactionSubmit {
+  border: solid 1px black;
+  background-color: $blue;
+  color: #FFFFFF;
+  margin: 5px;
+}
+
+#addCategoryBtn {
+  display: block;
+  text-align: center;
+  margin: 10px auto;
+  font-size: 1.5rem;
+  background-color: $blue;
+  color: #FFFFFF;
+  padding: 10px;
+}
+
+#dashboard footer {
+  position: fixed;
+  left: 0;
+  bottom: 10px;
+  width: 100%;
+  height: 25px;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#splash footer a {
+  margin: 30px;
+}
+
+// BUCKET VIEW
+
+.bucketDetails {
+  height: fit-content;
+}
+
+#bucketDetails {
+  display: block;
+  margin: $center-margin;
+  width: 50%;
+}
+
+.bucket ul {
+  margin: 0;
+  padding: 0;
+}
+
+#bucket ul {
+  margin: 0;
+  padding: 0;
+}
+
+#bucket li {
+  margin: 0;
+  padding: 10px 0 ;
+  text-align: center;
+  list-style: none;
+  border-bottom: solid 1px $blue;
+}
+
+.transactions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.transactionHeader {
+  font-weight: bold;
+}
+
+#transactionTotal {
+  grid-column: 1;
+  border-bottom: none !important;
+  font-weight: bold;
+}
+
+#totalAmount {
+  grid-column: 3;
+}
+
+#numTransactions {
+  grid-column: 1;
+}
+
+.transactionSummary {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 10px 0;
+  background-color: $blue;
+  color: white;
+}
+
+// MEDIA QUERIES
+
+
+@media (min-width: 600px) {
+
+}
+
+@media (min-width: 900px) {
+
+}
