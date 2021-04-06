@@ -11,13 +11,17 @@ document.addEventListener("readystatechange", (event) => {
 });
 
 const initApp = () => {
+
   // Add listeners
   const itemEntryForm = document.getElementById("itemEntryForm");
+
+  // event listener for adding a new item once the submit button is pushed
   itemEntryForm.addEventListener("submit", (event) => {
     event.preventDefault();
     processSubmission();
   });
 
+  // clears items when the clear button is pushed
   const clearItems = document.getElementById("clearItems");
   clearItems.addEventListener("click", (event) => {
     const list = toDoList.getList();
@@ -31,11 +35,12 @@ const initApp = () => {
     }
   });
 
-
   // Procedural
   loadListObject();
   refreshThePage();
+
 }
+
 
 const loadListObject = () => {
   const storedList = localStorage.getItem("myToDoList");
