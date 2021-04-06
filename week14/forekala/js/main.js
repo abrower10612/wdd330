@@ -10,6 +10,10 @@ const updatePersistentData = (categories) => {
   localStorage.setItem("myCategories", JSON.stringify(categories));
 }
 
+const updateTransactionPersistentData = (category, transactions) => {
+  localStorage.setItem(category.getItem() + "Transactions", JSON.stringify(transactions));
+}
+
 document.addEventListener("readystatechange", (event) => {
   if (event.target.readyState === "complete") {
     initApp();
@@ -44,6 +48,7 @@ const pageRefresh = () => {
   renderCategories();
 }
 
+
 const renderCategories = () => {
   const categories = categoryList.getList();
   categories.forEach(category => {
@@ -51,10 +56,12 @@ const renderCategories = () => {
   })
 }
 
+
 const clearCategories = () => {
   const container = document.getElementById("categories");
   deleteCategories(container);
 }
+
 
 const deleteCategories = (container) => {
   let child = container.lastElementChild;
@@ -80,16 +87,24 @@ function addCategory() {
 }
 
 
+// creates the new category as an object
+const createNewCategory = (categoryName, categoryId) => {
+  const category = new CategoryItem();
+  category.setId(categoryId);
+  category.setItem(categoryName);
+  return category;
+}
+
+
 const createCategory = (category) => {
   // Variables
   var node = document.createElement("div");
   var textnode = document.createTextNode(category.getItem());
+  node.id = category.getId();
   var addTransaction = document.createElement("button");
   var deleteBtn = document.createElement("button");
-  var addTransaction = document.createElement("button");
-  var clear = document.createElement("button");
-  var clearText = document.createTextNode("clear");
-  var clear = document.createElement("button");
+  var clearBtn = document.createElement("button");
+  var addTransactionBtn = document.createElement("button");
   var clearText = document.createTextNode("clear");
   var categoryTitle = document.createElement("div");
   var categoryHeading = document.createElement("h2");
@@ -104,8 +119,10 @@ const createCategory = (category) => {
   categoryTitle.classList.add("categoryTitle");
   deleteBtn.classList.add("fa");
   deleteBtn.classList.add("fa-trash-o");
+  deleteBtn.id = category.getId();
+  clearBtn.id = category.getId();
+  transactionSubmit.id = category.getId();
   node.classList.add("bucket");
-  node.id = category.getId();
   addTransaction.classList.add("fa");
   addTransaction.classList.add("fa-plus-circle");
   addTransaction.style.color = "white";
@@ -124,8 +141,8 @@ const createCategory = (category) => {
   categoryTitle.appendChild(deleteBtn);
   node.appendChild(categoryTitle);
   categoryTitle.appendChild(addTransaction);
-  clear.appendChild(clearText);
-  categoryTitle.appendChild(clear);
+  clearBtn.appendChild(clearText);
+  categoryTitle.appendChild(clearBtn);
   node.appendChild(transactionBar);
   transactionBar.appendChild(transactionName);
   transactionBar.appendChild(transactionDate);
@@ -134,9 +151,11 @@ const createCategory = (category) => {
   transactionBar.appendChild(transactionSubmit);
 
   // Onclick and finish
-  deleteBtn.onclick = () => { deleteCategory(document.getElementById(node.id)) };
-  clear.onclick = () => { clearCategory() };
-  addTransaction.onclick = () => { newTransaction(transactionBar, transactionSubmit, transactionAmount, transactionDate, transactionName, category) }
+  trashcanClickListener(deleteBtn);
+  clearBtnClickListener(clearBtn, category);
+  addTransaction.onclick = () => { 
+    newTransaction(transactionBar, transactionSubmit, transactionAmount, transactionDate, transactionName, category)
+  }
   document.getElementById("categories").appendChild(node);
 }
 
@@ -149,15 +168,39 @@ function newTransaction(transactionBar, transactionSubmit, transactionAmount, tr
     transaction.setItem(transactionName.value);
     transaction.setDate(transactionDate.value);
     transaction.setAmount(transactionAmount.value);
-    const categoryId = category.getId();
-    console.log(categoryId);
-    // addTransactionToBucket(transaction);
+    transaction.setId(calcTransactionId(category));
+    category.addTransactionToList(transaction);
+    updateTransactionPersistentData(category, category.getList());
+    console.log("Category: " + category.getItem());
+    pageRefresh();
   }
 }
 
 
-const addTransactionToBucket = (transaction) => {
-}
+const trashcanClickListener = (deleteBtn) => {
+  deleteBtn.addEventListener("click", (event) => {
+    var confirmDelete = window.confirm("Are you sure you want to delete this category?");
+    if (confirmDelete) {
+      categoryList.removeCategoryFromList(deleteBtn.id);
+      updatePersistentData(categoryList.getList());
+      pageRefresh();
+    }
+  })
+};
+
+
+const clearBtnClickListener = (clearBtn, category) => {
+  clearBtn.addEventListener("click", (event) => {
+    var confirmClear = window.confirm("Are you sure you want to clear all transactions from this category?");
+    if (confirmClear) {
+      category.clearList(clearBtn.id);
+      updateTransactionPersistentData(category, category.getList());
+      if (category.getList().length == 0) alert("Transactions have been cleared");
+      else alert("Transactions have NOT been cleared");
+      pageRefresh();
+    }
+  })
+};
 
 
 // calculates a unique id for each category
@@ -172,30 +215,15 @@ const calcCategoryId = () => {
 }
 
 
-// creates the new category as an object
-const createNewCategory = (categoryName, categoryId) => {
-  const category = new CategoryItem();
-  category.setId(categoryId);
-  category.setItem(categoryName);
-  return category;
-}
-
-
-
-// clears the list of transactions within the selected category
-function clearCategory() {
-  alert("Transactions cleared");
-}
-
-
-// deletes a category when the delete icon is selected
-function deleteCategory(node) {
-  var confirmDelete = window.confirm("Are you sure you want to delete this category?");
-  if (confirmDelete) {
-    categoryList.removeCategoryFromList(node.id);
-    updatePersistentData(categoryList.getList());
-    pageRefresh();
+// calculates a unique id for each transaction in the category
+const calcTransactionId = (category) => {
+  let nextTransactionId = 1;
+  const list = category.getList();
+  if (list.length > 0) {
+    nextTransactionId = list[list.length - 1].getId() + 1;
   }
+  console.log(list);
+  return nextTransactionId;
 }
 
 
