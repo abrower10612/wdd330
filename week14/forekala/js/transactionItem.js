@@ -16,6 +16,15 @@ export default class TransactionItem {
     this._id = id;
   }
 
+  // Parent category
+  getParentCategory() {
+    return this._item;
+  }
+
+  setParentCategory(item) {
+    this._parentCategory = item;
+  }
+
 
   // Name
   getItem() {
