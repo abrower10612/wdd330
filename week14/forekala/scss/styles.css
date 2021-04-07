@@ -74,21 +74,22 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.bucket {
-  display: grid;
-  grid-template-rows: 50px 1fr;
-  margin: 0 auto;
-}
-
-.categoryTitle {
   margin-bottom: 0;
   grid-row: 1;
 }
 
+.bucket {
+  display: grid;
+  grid-template-rows: 50px 50px 1fr;
+  margin: 0 auto;
+}
+
+.transactionSubmit {
+  margin-top: 5px;
+}
+
 .transactionTable {
-  grid-row: 2;
+  grid-row: 3;
 }
 
 .transactionTable tr:nth-of-type(2n+1) {
@@ -135,7 +136,7 @@ td {
 
 .transactionBar {
   display: block;
-  border: solid 2px black;
+  border-bottom: solid 2px #3464b4;
   padding: 5px;
   transition: display 2s;
 }
@@ -154,6 +155,15 @@ td {
   background-color: #3464b4;
   color: #FFFFFF;
   margin: 5px;
+}
+
+#totalBar {
+  font-size: 0.75rem;
+  grid-row: 2;
+  border-bottom: solid 2px #3464b4;
+}
+#totalBar th {
+  font-size: 1rem;
 }
 
 #addCategoryBtn {

@@ -1,6 +1,5 @@
 import CategoryList from "./categoryList.js"
 import CategoryItem from "./categoryItem.js"
-import TransactionList from "./transactionList.js"
 import TransactionItem from "./transactionItem.js"
 
 
@@ -41,14 +40,9 @@ const loadTransactions = () => {
     const parsedTransactionList = JSON.parse(storedTransactions);
     parsedTransactionList.forEach(transaction => {
       const newTransaction = createNewTransaction(transaction._item, transaction._id, transaction._date, transaction._amount, transaction._parentCategory);
-      console.log(newTransaction);
       categories.forEach(category => {
-        console.log(newTransaction._parentCategory);
         if (category.getItem() == newTransaction._parentCategory) {
           category.addTransactionToList(newTransaction);
-        }
-        else {
-          console.log("not quite");
         }
       })
     })
@@ -183,28 +177,58 @@ const createCategory = (category) => {
   var categoryTitle = document.createElement("div");
   var categoryHeading = document.createElement("h2");
   var transactionTable = document.createElement("table");
-  var transactionTableHeader = document.createElement("tr");
 
-  // table header for vendor name
+  // build the total bar at the bottom of each category
+  var totalBar = document.createElement("table");
+  var totalBarHeader = document.createElement("tr");
+  var totalBarPlanned = document.createElement("th");
+  var totalBarPlannedText = document.createTextNode("Planned");
+  totalBarPlanned.appendChild(totalBarPlannedText);
+  var totalBarSpent = document.createElement("th");
+  var totalBarSpentText = document.createTextNode("Spent");
+  totalBarSpent.appendChild(totalBarSpentText);
+  var totalBarLeft = document.createElement("th");
+  var totalBarLeftText = document.createTextNode("Left");
+  totalBarLeft.appendChild(totalBarLeftText);
+  totalBar.appendChild(totalBarHeader);
+  totalBarHeader.appendChild(totalBarPlanned);
+  totalBarHeader.appendChild(totalBarSpent);
+  totalBarHeader.appendChild(totalBarLeft);
+  var totalBarContent = document.createElement("tr");
+  var totalPlannedAmount = document.createElement("td");
+  var totalPlannedLink = document.createElement("a");
+  var totalPlannedText = document.createTextNode("$100.00");
+  totalPlannedLink.appendChild(totalPlannedText);
+  totalPlannedAmount.appendChild(totalPlannedLink);
+  var totalSpentAmount = document.createElement("td");
+  var totalSpentText = document.createTextNode("$50.00");
+  totalSpentAmount.appendChild(totalSpentText);
+  var totalLeftAmount = document.createElement("td");
+  var totalLeftText = document.createTextNode("$50.00");
+  totalLeftAmount.appendChild(totalLeftText);
+  totalBarContent.appendChild(totalPlannedAmount);
+  totalBarContent.appendChild(totalSpentAmount);
+  totalBarContent.appendChild(totalLeftAmount);
+  totalBar.appendChild(totalBarContent);
+  totalBar.id = "totalBar";
+
+  // transaction table header
+  var transactionTableHeader = document.createElement("tr");
   var tableNameHeader = document.createElement("th")
   var tableNameHeaderText = document.createTextNode("Vendor");
   tableNameHeader.appendChild(tableNameHeaderText);
-
-  // table header for transaction date
   var tableDateHeader = document.createElement("th")
   var tableDateHeaderText = document.createTextNode("Date");
   tableDateHeader.appendChild(tableDateHeaderText);
-
-  // table header for transaction amount
   var tableAmountHeader = document.createElement("th")
   var tableAmountHeaderText = document.createTextNode("Amount");
   tableAmountHeader.appendChild(tableAmountHeaderText);
-
   transactionTable.appendChild(transactionTableHeader);
   transactionTableHeader.appendChild(tableNameHeader)
   transactionTableHeader.appendChild(tableDateHeader)
   transactionTableHeader.appendChild(tableAmountHeader)
   var transactionBar = document.createElement("div");
+  transactionBar.id = "transactionBar";
   var transactionName = document.createElement("input");
   var transactionAmount = document.createElement("input")
   transactionAmount.type = "number";
@@ -244,8 +268,9 @@ const createCategory = (category) => {
   categoryTitle.appendChild(addTransaction);
   clearBtn.appendChild(clearText);
   categoryTitle.appendChild(clearBtn);
-  node.appendChild(transactionTable);
+  node.appendChild(totalBar);
   node.appendChild(transactionBar);
+  node.appendChild(transactionTable);
   transactionBar.appendChild(transactionName);
   transactionBar.appendChild(transactionDate);
   transactionBar.appendChild(transactionAmount);
@@ -264,6 +289,14 @@ const createCategory = (category) => {
 
 const buildTransactionsList = (transactions, transactionTable) => {
   transactions.forEach(transaction => {
+
+  // number currency formatter
+  var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 2,
+  });
+
   // transaction name
   var transactionTableRow = document.createElement("tr")
   var transactionNameTextNode = document.createTextNode(transaction.getItem());
@@ -277,9 +310,9 @@ const buildTransactionsList = (transactions, transactionTable) => {
   transactionDate.appendChild(transactionDateTextNode);
   transactionTableRow.appendChild(transactionDate)
 
-
   //transaction amount
-  var transactionAmountTextNode = document.createTextNode(transaction.getAmount());
+  var newAmount = formatter.format(transaction.getAmount());
+  var transactionAmountTextNode = document.createTextNode(newAmount);
   var transactionAmount = document.createElement("td");
   transactionAmount.appendChild(transactionAmountTextNode);
   transactionTableRow.appendChild(transactionAmount)
