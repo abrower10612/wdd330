@@ -114,6 +114,11 @@ const createCategory = (category) => {
   var transactionDate = document.createElement("input")
   var transactionSubmitText = document.createTextNode("Track Expense");
   var transactionSubmit = document.createElement("a");
+  const transactions = category.getList();
+  transactions.forEach(transaction => {
+    var transactionTextNode = document.createTextNode(transaction.getItem());
+    node.appendChild(transactionTextNode);
+  })
 
   // classes, styles, and ids
   categoryTitle.classList.add("categoryTitle");
@@ -183,6 +188,9 @@ const trashcanClickListener = (deleteBtn) => {
     if (confirmDelete) {
       categoryList.removeCategoryFromList(deleteBtn.id);
       updatePersistentData(categoryList.getList());
+      if (categoryList.getList().length == 0) {
+        localStorage.removeItem("myCategories");
+      }
       pageRefresh();
     }
   })
@@ -195,8 +203,12 @@ const clearBtnClickListener = (clearBtn, category) => {
     if (confirmClear) {
       category.clearList(clearBtn.id);
       updateTransactionPersistentData(category, category.getList());
-      if (category.getList().length == 0) alert("Transactions have been cleared");
-      else alert("Transactions have NOT been cleared");
+      if (category.getList().length == 0) {
+        alert("Transactions have been cleared");
+        localStorage.removeItem(category.getItem() + "Transactions");
+        // if (localStorage.removeItem(category + "Transactions")) alert("success");
+      }
+      else alert("Transactions could not be cleared. Please try again.");
       pageRefresh();
     }
   })
