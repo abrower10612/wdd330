@@ -1,0 +1,504 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #FAF33E;
+  margin: 0;
+  padding: 20px 0 10px 0;
+}
+
+#projects,
+#aboutMe {
+  background-color: #55505C;
+  padding-bottom: 20px;
+}
+#projects ul,
+#aboutMe ul {
+  padding: 40px 0;
+}
+#projects ul li,
+#aboutMe ul li {
+  font-size: 1.3em;
+  list-style: none;
+  text-align: center;
+  color: white;
+}
+
+#project-links {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  gap: 25px;
+  margin: 20px;
+}
+
+#project-links section {
+  min-width: 200px;
+  border: solid 3px #FAF33E;
+  color: #FAF33E;
+  padding: 10px;
+}
+#project-links section h3 {
+  margin: 10px 0;
+}
+#project-links section a {
+  display: block;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  color: #FFFFFF;
+}
+
+#project-links a:hover {
+  color: #FAF33E;
+}
+
+#offer,
+#resume {
+  background-color: #FAF33E;
+  padding-bottom: 20px;
+}
+
+#offer {
+  padding-bottom: 40px;
+}
+
+#contact {
+  background-color: #55505C;
+}
+
+@media all and (min-width: 750px) {
+  #project-links {
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: 20px;
+    text-align: center;
+    justify-items: center;
+  }
+  #project-links section {
+    max-width: 300px;
+    min-height: 200px;
+  }
+  #project-links h3 {
+    font-size: 2rem;
+  }
+  #project-links a {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 2rem;
+  }
+}
+@media all and (min-width: 1000px) {
+  #project-links {
+    margin: 20px auto;
+  }
+  #project-links section {
+    min-width: 250px;
+  }
+}
+header img {
+  display: block;
+  margin: auto;
+  border: solid 3px #55505C;
+  border-radius: 100%;
+  width: 50%;
+  box-shadow: 5px 5px 20px #333;
+}
+
+#iconContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  margin: 20px auto;
+  padding: 20px;
+  gap: 30px;
+}
+#iconContainer svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100px;
+}
+
+.socialheader {
+  display: flex;
+  justify-content: center;
+}
+
+.socialheader a {
+  cursor: pointer;
+  color: white;
+  font-size: 2.5em;
+  text-decoration: none;
+  text-align: center;
+  margin: 10px 20px 30px 20px;
+}
+
+.socialheader a:visited {
+  color: white;
+}
+
+.socialheader a:hover {
+  color: #FAF33E;
+}
+
+@media all and (min-width: 750px) {
+  header img {
+    display: inline;
+    margin: 30px;
+    border: solid 3px #55505C;
+    border-radius: 100%;
+    width: 25%;
+    max-width: 400px;
+  }
+
+  p {
+    display: block;
+    margin: 0 auto;
+    max-width: 700px;
+  }
+}
+@media all and (min-width: 1000px) {
+  header img {
+    width: 15%;
+  }
+}
+p,
+li,
+ul {
+  font-family: "Montserrat", sans-serif;
+}
+
+p {
+  margin: 0 20px;
+  padding: 20px 0;
+}
+
+h1, h2, h3, h4 {
+  text-align: center;
+  font-family: "Roboto Slab", serif;
+}
+
+h1 {
+  font-size: 3em;
+  margin: 20px 5px 50px 5px;
+}
+h1 span {
+  color: #FAF33E;
+  background: #55505C;
+  padding: 0 10px;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  width: fit-content;
+  border-radius: 5px;
+  font-size: 2em;
+  margin: 20px auto 10px auto;
+}
+
+#aboutMe h2 {
+  color: #55505C;
+  background: #FAF33E;
+  padding: 0 10px;
+  width: fit-content;
+  border-radius: 5px;
+  font-size: 2em;
+  margin: 40px auto 10px auto;
+}
+
+#aboutMe p {
+  color: white;
+  font-size: 1.3em;
+}
+
+main p {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+}
+
+#projects h2 {
+  color: #55505C;
+  background: #FAF33E;
+  padding: 0 10px;
+  width: fit-content;
+  border-radius: 5px;
+  font-size: 2em;
+  margin: 0 auto 20px auto;
+}
+
+#projects p {
+  color: white;
+}
+
+#offer h2,
+#resume h2 {
+  background-color: #55505C;
+  color: #FAF33E;
+}
+
+#resume h2 {
+  margin-top: 0;
+}
+
+#resume h3 {
+  text-align: center;
+  font-size: 1.3em;
+  margin: 10px 0;
+}
+
+#resume h4 {
+  font-size: 1.1em;
+  color: black;
+}
+
+#resume div {
+  margin: 20px;
+}
+
+#resume li {
+  color: black;
+  margin: 0;
+}
+
+#resume p {
+  padding: 0;
+  margin: 20px 0;
+  font-weight: bolder;
+}
+
+#resume hr {
+  margin: 0 20px;
+  border: #55505C solid 1px;
+}
+
+#contact h2 {
+  color: #55505C;
+  background: #FAF33E;
+}
+
+#resume ul {
+  color: #55505C;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#contact p, li {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  list-style: none;
+  padding: 5px;
+  text-decoration: none;
+}
+
+#contact li a {
+  color: white;
+}
+
+@media screen and (orientation: landscape) {
+  main p {
+    margin: 30px;
+  }
+}
+@media all and (max-width: 420px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  main p {
+    font-size: 1em;
+  }
+
+  h1 {
+    font-size: 1.25em;
+    margin: 20px 5px 50px 5px;
+  }
+  h1 span {
+    color: #FAF33E;
+    background: #55505C;
+    padding: 0 10px;
+    border-radius: 5px;
+    font-size: 1.5em;
+  }
+}
+@media all and (min-width: 750px) {
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  #aboutMe p {
+    color: white;
+    font-size: 2em;
+  }
+
+  #resume h2 {
+    margin-bottom: 50px;
+  }
+
+  #resume h3 {
+    font-size: 2em;
+  }
+
+  main p {
+    font-size: 1.5em;
+    margin: 40px auto;
+  }
+
+  #resume p {
+    max-width: unset;
+  }
+  #resume li {
+    font-size: 1.25em;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+@media all and (min-width: 1000px) {
+  h1 {
+    font-size: 3em;
+    margin: 20px 5px 50px 5px;
+  }
+  h1 span {
+    color: #FAF33E;
+    background: #55505C;
+    padding: 0 10px;
+    border-radius: 5px;
+    font-size: 1.3em;
+  }
+
+  h2 {
+    font-size: 3em !important;
+  }
+
+  #resume h3 {
+    font-size: 2.75em;
+    margin: 10px 0;
+  }
+
+  #resume h4 {
+    font-size: 2em;
+  }
+
+  #projects h2 {
+    margin-bottom: 100px;
+  }
+
+  main p {
+    font-size: 1.5em;
+    margin: 40px auto;
+  }
+}
+.container {
+  display: inline-block;
+  cursor: pointer;
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  background-color: #55505C;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change {
+  border-left: solid 5px white;
+}
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  /* Stay at the top */
+  right: 0;
+  background-color: #55505C;
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  font-size: 4em;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left 0.5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-width: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
