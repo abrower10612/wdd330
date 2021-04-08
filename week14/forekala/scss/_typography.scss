@@ -1,7 +1,7 @@
 // ALL VIEWS
 
 h1 {
-  color: $blue;
+  color: $gray;
 }
 
 // SPLASH VIEW
@@ -43,6 +43,11 @@ h1 {
 .bucketDetails h2 {
   margin-bottom: 0;
   color: #FFFFFF;
+}
+
+#planned {
+  color: blue;
+  text-decoration: underline;
 }
 
 

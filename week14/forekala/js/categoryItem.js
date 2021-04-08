@@ -3,6 +3,7 @@ export default class CategoryItem {
   constructor() {
     this._id = null;
     this._item = null;
+    this._planned = parseInt(0);
     this._list = [];
   }
 
@@ -20,6 +21,14 @@ export default class CategoryItem {
 
   setItem(item) {
     this._item = item;
+  }
+
+  getPlanned() {
+    return this._planned;
+  }
+
+  setPlanned(planned) {
+    this._planned = planned;
   }
 
   getList() {

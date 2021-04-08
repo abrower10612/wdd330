@@ -55,5 +55,4 @@ export default class TransactionItem {
     this._amount = amount;
   }
 
-
 }

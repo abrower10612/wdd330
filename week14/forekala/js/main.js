@@ -5,6 +5,13 @@ import TransactionItem from "./transactionItem.js"
 
 const categoryList = new CategoryList;
 
+// number currency formatter
+var formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 2,
+});
+
 const updatePersistentData = (categories) => {
   localStorage.setItem("myCategories", JSON.stringify(categories));
 }
@@ -67,7 +74,7 @@ const loadCategories = () => {
   if (typeof storedCategories != "string") return;
   const parsedList = JSON.parse(storedCategories);
   parsedList.forEach(category => {
-    const newCategory = createNewCategory(category._item, category._id);
+    const newCategory = createNewCategory(category._item, category._id, category._planned);
     categoryList.addCategoryToList(newCategory);
   })
 }
@@ -103,10 +110,11 @@ const deleteCategories = (container) => {
 
 
 // creates the new category as an object
-const createNewCategory = (categoryName, categoryId) => {
+const createNewCategory = (categoryName, categoryId, categoryPlanned) => {
   const category = new CategoryItem();
   category.setId(categoryId);
   category.setItem(categoryName);
+  category.setPlanned(categoryPlanned);
   return category;
 }
 
@@ -118,7 +126,8 @@ function addCategory() {
   else if (categoryName == null) return;
   else {
     const nextCategoryId = calcCategoryId();
-    const newCategory = createNewCategory(categoryName, nextCategoryId);
+    const categoryPlanned = 0;
+    const newCategory = createNewCategory(categoryName, nextCategoryId, categoryPlanned);
     categoryList.addCategoryToList(newCategory);
     updatePersistentData(categoryList.getList());
     pageRefresh();
@@ -165,6 +174,17 @@ function newTransaction(transactionBar, transactionSubmit, transactionAmount, tr
 }
 
 
+const calculateCategorySpent = (category) => {
+  var test = category.getList();
+  var totalSpent = 0;
+  test.forEach(transaction => {
+    totalSpent += parseInt(transaction.getAmount());
+  })
+  console.log(totalSpent);
+  return totalSpent;
+}
+
+
 const createCategory = (category) => {
   // Variables
   var node = document.createElement("div");
@@ -182,6 +202,7 @@ const createCategory = (category) => {
   var totalBar = document.createElement("table");
   var totalBarHeader = document.createElement("tr");
   var totalBarPlanned = document.createElement("th");
+  totalBarPlanned.id = "planned";
   var totalBarPlannedText = document.createTextNode("Planned");
   totalBarPlanned.appendChild(totalBarPlannedText);
   var totalBarSpent = document.createElement("th");
@@ -196,15 +217,17 @@ const createCategory = (category) => {
   totalBarHeader.appendChild(totalBarLeft);
   var totalBarContent = document.createElement("tr");
   var totalPlannedAmount = document.createElement("td");
-  var totalPlannedLink = document.createElement("a");
-  var totalPlannedText = document.createTextNode("$100.00");
-  totalPlannedLink.appendChild(totalPlannedText);
-  totalPlannedAmount.appendChild(totalPlannedLink);
+  var getPlanned = formatter.format(category.getPlanned());
+  var totalPlannedText = document.createTextNode(getPlanned);
+  totalPlannedAmount.appendChild(totalPlannedText);
   var totalSpentAmount = document.createElement("td");
-  var totalSpentText = document.createTextNode("$50.00");
+  var totalSpentCalculated = calculateCategorySpent(category);
+  var totalSpentFormatted = formatter.format(totalSpentCalculated);
+  var totalSpentText = document.createTextNode(totalSpentFormatted);
   totalSpentAmount.appendChild(totalSpentText);
   var totalLeftAmount = document.createElement("td");
-  var totalLeftText = document.createTextNode("$50.00");
+  var totalLeftFormatted = formatter.format(category.getPlanned() - totalSpentCalculated);
+  var totalLeftText = document.createTextNode(totalLeftFormatted);
   totalLeftAmount.appendChild(totalLeftText);
   totalBarContent.appendChild(totalPlannedAmount);
   totalBarContent.appendChild(totalSpentAmount);
@@ -280,6 +303,7 @@ const createCategory = (category) => {
   // Onclick and finish
   trashcanClickListener(deleteBtn);
   clearBtnClickListener(clearBtn, category);
+  plannedClickListener(totalBarPlanned, category);
   addTransaction.onclick = () => { 
     newTransaction(transactionBar, transactionSubmit, transactionAmount, transactionDate, transactionName, category)
   }
@@ -289,13 +313,6 @@ const createCategory = (category) => {
 
 const buildTransactionsList = (transactions, transactionTable) => {
   transactions.forEach(transaction => {
-
-  // number currency formatter
-  var formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 2,
-  });
 
   // transaction name
   var transactionTableRow = document.createElement("tr")
@@ -325,10 +342,10 @@ const trashcanClickListener = (deleteBtn) => {
   deleteBtn.addEventListener("click", (event) => {
     var confirmDelete = window.confirm("Are you sure you want to delete this category?");
     if (confirmDelete) {
+      alert("Category has been deleted");
       categoryList.removeCategoryFromList(deleteBtn.id);
       updatePersistentData(categoryList.getList());
       if (categoryList.getList().length == 0) {
-        alert("Category has been deleted");
         localStorage.removeItem("myCategories");
       }
       pageRefresh();
@@ -352,6 +369,21 @@ const clearBtnClickListener = (clearBtn, category) => {
     }
   })
 };
+
+
+
+const plannedClickListener = (totalBarPlanned, category) => {
+  totalBarPlanned.addEventListener("click", (event) => {
+    var planned = prompt("How much are you planning for the month?")
+    if (planned == "") planned = 0;
+    else if (planned == null) return;
+    else {
+      category.setPlanned(planned);
+      updatePersistentData(categoryList.getList());
+      pageRefresh();
+    }
+  })
+}
 
 
 
