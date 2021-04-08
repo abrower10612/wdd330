@@ -289,9 +289,10 @@ h1 {
   color: #FFFFFF;
 }
 
-#planned {
+#link {
   color: blue;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 header img {

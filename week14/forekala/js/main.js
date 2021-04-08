@@ -180,7 +180,6 @@ const calculateCategorySpent = (category) => {
   test.forEach(transaction => {
     totalSpent += parseInt(transaction.getAmount());
   })
-  console.log(totalSpent);
   return totalSpent;
 }
 
@@ -202,7 +201,7 @@ const createCategory = (category) => {
   var totalBar = document.createElement("table");
   var totalBarHeader = document.createElement("tr");
   var totalBarPlanned = document.createElement("th");
-  totalBarPlanned.id = "planned";
+  totalBarPlanned.id = "link";
   var totalBarPlannedText = document.createTextNode("Planned");
   totalBarPlanned.appendChild(totalBarPlannedText);
   var totalBarSpent = document.createElement("th");
@@ -228,6 +227,7 @@ const createCategory = (category) => {
   var totalLeftAmount = document.createElement("td");
   var totalLeftFormatted = formatter.format(category.getPlanned() - totalSpentCalculated);
   var totalLeftText = document.createTextNode(totalLeftFormatted);
+  if (category.getPlanned() - totalSpentCalculated < 0) totalLeftAmount.style.color = "red";
   totalLeftAmount.appendChild(totalLeftText);
   totalBarContent.appendChild(totalPlannedAmount);
   totalBarContent.appendChild(totalSpentAmount);
@@ -260,7 +260,7 @@ const createCategory = (category) => {
   var transactionSubmitText = document.createTextNode("Track Expense");
   var transactionSubmit = document.createElement("a");
   var transactions = category.getList();
-  buildTransactionsList(transactions, transactionTable);
+  buildTransactionsList(transactions, transactionTable, category);
 
   // classes, styles, and ids
   categoryTitle.classList.add("categoryTitle");
@@ -311,19 +311,23 @@ const createCategory = (category) => {
 }
 
 
-const buildTransactionsList = (transactions, transactionTable) => {
+const buildTransactionsList = (transactions, transactionTable, category) => {
   transactions.forEach(transaction => {
 
   // transaction name
   var transactionTableRow = document.createElement("tr")
   var transactionNameTextNode = document.createTextNode(transaction.getItem());
   var transactionName = document.createElement("td");
+  transactionName.id = "link";
+  transactionNameClickListener(transactionName, transaction, category);
   transactionName.appendChild(transactionNameTextNode);
   transactionTableRow.appendChild(transactionName)
 
   //transaction date
   var transactionDateTextNode = document.createTextNode(transaction.getDate());
   var transactionDate = document.createElement("td");
+  transactionDate.id = "link";
+  transactionDateClickListener(transactionDate, transaction, category);
   transactionDate.appendChild(transactionDateTextNode);
   transactionTableRow.appendChild(transactionDate)
 
@@ -331,10 +335,63 @@ const buildTransactionsList = (transactions, transactionTable) => {
   var newAmount = formatter.format(transaction.getAmount());
   var transactionAmountTextNode = document.createTextNode(newAmount);
   var transactionAmount = document.createElement("td");
+  transactionAmount.id = "link";
+  transactionAmountClickListener(transactionAmount, transaction, category);
   transactionAmount.appendChild(transactionAmountTextNode);
   transactionTableRow.appendChild(transactionAmount)
   transactionTable.appendChild(transactionTableRow);
   });
+}
+
+
+const transactionNameClickListener = (transactionName, transaction, category) => {
+  transactionName.addEventListener("click", (event) => {
+    var newName = prompt("Edit transaction vendor name:")
+    if (newName == "") {
+      alert("Transaction date cannot be empty. Please try again.");
+      return;
+    }
+    else if (newName == null) return;
+    else {
+      transaction.setItem(newName);
+      updateTransactionPersistentData(category, category.getList());
+      pageRefresh();
+    }
+  })
+}
+
+
+const transactionDateClickListener = (transactionDate, transaction, category) => {
+  transactionDate.addEventListener("click", (event) => {
+    var newDate = prompt("Edit transaction date:")
+    if (newDate == "") {
+      alert("Transaction date cannot be empty. Please try again.");
+      return;
+    }
+    else if (newDate == null) return;
+    else {
+      transaction.setDate(newDate);
+      updateTransactionPersistentData(category, category.getList());
+      pageRefresh();
+    }
+  })
+}
+
+
+const transactionAmountClickListener = (transactionAmount, transaction, category) => {
+  transactionAmount.addEventListener("click", (event) => {
+    var newAmount = prompt("Edit transaction amount:")
+    if (newAmount == "") {
+      alert("Transaction date cannot be empty. Please try again.");
+      return;
+    }
+    else if (newAmount == null) return;
+    else {
+      transaction.setAmount(newAmount);
+      updateTransactionPersistentData(category, category.getList());
+      pageRefresh();
+    }
+  })
 }
 
 
